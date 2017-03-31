@@ -12,7 +12,7 @@ O básico do frontend.
 
 Site estático online em rg3915.github.io/frontend
 
-Leia também [Head básico de um HTML]()
+Leia também [Head básico de um HTML](https://github.com/rg3915/frontend/blob/master/docs/html-head-basico.md)
 
 ### master
 
