@@ -3,6 +3,7 @@
 Basicamente eu criei um `li` no HTML com um id.
 
 ```html
+<button id="btn-dynamic-component" class="btn btn-primary">Clique aqui</button>
 <ul id="ul_id"></ul>
 ```
 
