@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     # thirty apps
     'django_extensions',
     # my apps
-    'myproject.core',
-    'myproject.djbasic',
+    'djfront.core',
+    'djfront.djbasic',
 ]
 
 MIDDLEWARE = [
