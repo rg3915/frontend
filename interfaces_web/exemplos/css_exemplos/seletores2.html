@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seletores</title>
+  <style>
+    .descendente p {
+      color: red;
+    }
+    .filho > p {
+      color: blue;
+    }
+    nav ul {
+      color: red; /* descendente */
+    }
+    nav > ul {
+      color: blue; /* filho */
+    }
+    .imediatamente-adjascente + p {
+      color: red;
+    }
+    .adjascente ~ p {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Seletores descendente e filho</h1>
+  
+  <p>1. <code>div > div > p</code></p>
+  <p>2. <code>div > p</code></p>
+  <p>3. <code>div > div > p</code></p>
+  <p>4. <code>div > p</code></p>
+
+  <div class="descendente">
+    <div>
+      <p>1. P é descendente do primeiro 'div'.</p>
+    </div>
+    <p>2. P é descendente do 'div'.</p>
+  </div>
+
+  <div class="filho">
+    <div>
+      <p>3. P <b>não</b> é filho do primeiro 'div'.</p>
+    </div>
+    <p>4. P é filho do primeiro 'div'.</p>
+  </div>
+
+  <p><a href="http://pt.stackoverflow.com/a/2257/761">http://pt.stackoverflow.com/a/2257/761</a></p>
+
+  <p><code>nav ul { … }</code> para os dois e <code>nav > ul { … }</code> para o menu, mas não o submenu</p>
+
+  <nav>
+    <ul>
+      <li>Um</li>
+      <li>Dois</li>
+      <li>
+        <ul>
+          <li>Submenu 1</li>
+          <li>Submenu 2</li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>Um</li>
+      <li>Dois</li>
+      <li>
+        <ul>
+          <li>Submenu 1</li>
+          <li>Submenu 2</li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <h1>Seletores adjascentes</h1>
+
+  <div class="imediatamente-adjascente">
+    <p>Filho de div</p>
+  </div>
+
+  <p>Primeiro parágrafo imediatamente-adjascente a div.</p>
+  <p>Segundo parágrafo adjascente a div.</p>
+
+  <div class="adjascente">
+    <p>Primeiro filho</p>
+    <p>Segundo filho</p>
+  </div>
+
+  <p>Primeiro parágrafo adjascente a div.</p>
+  <p>Segundo parágrafo adjascente a div.</p>
+  <p>Terceiro parágrafo adjascente a div.</p>
+</body>
+</html>

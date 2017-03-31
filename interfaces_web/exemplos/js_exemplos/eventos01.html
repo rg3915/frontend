@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos</title>
+</head>
+<body>
+  <button id="xpto">Clicar</button>
+
+<script>
+  console.log('Carregou!')
+  var xpto = document.getElementById('xpto');
+
+  // xpto.onclick = quandoClicar;
+
+  function quandoClicar() {
+      console.log('1');
+  }
+
+  function quandoClicar2() {
+      console.log('2');
+  }
+
+  xpto.addEventListener('click', quandoClicar);
+  xpto.addEventListener('click', quandoClicar2);
+
+  // xpto.removeEventListener('click', quandoClicar2);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+div {
+  margin: 300px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #064e83;
+  color: white;
+  transition: 1s ease-in-out;
+}
+
+div:hover {
+  -webkit-transform: transform: scale(4, 4) rotate(360deg);
+  transform: scale(4, 4) rotate(360deg);
+}

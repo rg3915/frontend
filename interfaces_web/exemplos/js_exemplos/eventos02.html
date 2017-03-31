@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos</title>
+</head>
+<body>
+  <button id="xpto">Clicar</button>
+
+  <p>As funções estão fora do contexto do <code>onload</code></p>
+
+<script>
+window.onload = function () {
+  console.log('Carregou!')
+  var xpto = document.getElementById('xpto');
+
+  // xpto.onclick = quandoClicar;
+
+
+  xpto.addEventListener('click', quandoClicar);
+  xpto.addEventListener('click', quandoClicar2);
+
+};
+
+  function quandoClicar() {
+      console.log('1');
+  }
+
+  function quandoClicar2() {
+      console.log('2');
+  }
+
+</script>
+
+</body>
+</html>

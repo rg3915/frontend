@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seletores</title>
+  <style>
+    div {
+      color: blue;
+    }
+    #id_name {
+      color: orange;
+    }
+    .classe {
+      color: green;
+    }
+    .cl1 p {
+      color: #536DFE;
+    }
+    .cl2 > p {
+      color: #673AB7;
+    }
+    [value] {
+      color: magenta;
+    }
+    [type="text"] {
+      color: brown;
+    }
+    p:first-child {
+      color: #353d0c;
+    }
+    p:before {
+      content: '123 - ';
+    }
+    .descendente {
+      color: red;
+    }
+    .filho {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div>TODO write content</div>
+
+  <p>Lorem ipsum</p>
+
+  <p id="id_name">Lorem ipsum</p>
+
+  <p class="classe">Lorem ipsum</p>
+
+  <section class="classe">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus similique architecto amet aut, doloribus voluptas. Ipsa laboriosam culpa voluptatibus iure obcaecati nemo laudantium in id placeat, aspernatur ad, repellendus quam.</section>
+
+  <section class="cl1">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam velit labore praesentium ipsum, minima, officia, dolorem porro enim quae fugit vel. Accusantium inventore dolorem ullam vitae laborum, consequatur, sint odit.</p>
+    <b>lorem</b>
+    <div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, quo. Suscipit soluta laudantium maxime, ullam dolor ducimus nihil vel, illum modi omnis voluptatem, quibusdam repudiandae consequuntur ab quae neque accusantium!</p>
+    </div>
+  </section>
+
+  <section class="cl2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam velit labore praesentium ipsum, minima, officia, dolorem porro enim quae fugit vel. Accusantium inventore dolorem ullam vitae laborum, consequatur, sint odit.</p>
+    <b>lorem</b>
+    <div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, quo. Suscipit soluta laudantium maxime, ullam dolor ducimus nihil vel, illum modi omnis voluptatem, quibusdam repudiandae consequuntur ab quae neque accusantium!</p>
+    </div>
+  </section>
+
+  <div>
+    <input type="text" name="teste">
+    <br>
+    <input type="search" name="teste" value="123">
+  </div>
+
+  <div>
+    <p>Primeiro parágrafo.</p>
+    <p>Segundo parágrafo.</p>
+  </div>
+
+  <div>
+    <p>Terceiro parágrafo.</p>
+    <p>Quarto parágrafo.</p>
+  </div>
+
+  <div class="descendente">
+    <p><span>Span descendente de div.</span></p>
+    <p><a href="#"><span>Span descendente de div.</span></a></p>
+  </div>
+
+  <div class="filho">
+    <p><span>Span filho de <code>p</code>.</span></p>
+    <p><a href="#"><span>Span <b>não é</b> filho de <code>p</code></span></a></p>
+  </div>
+</body>
+</html>

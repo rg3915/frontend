@@ -1,0 +1,18 @@
+li {
+  border: 2px black solid;
+  width: 400px;
+}
+
+#ul1 {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+#ul2 {
+  list-style-image: url('img/example.jpg');
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+

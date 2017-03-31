@@ -1,0 +1,31 @@
+div {
+  color: white;
+}
+
+#vermelho {
+  position: relative; /* static is default */
+  top: 30px;
+  left: 100px;
+  width: 200px;
+  height: 100px;
+  background: red;
+}
+
+#verde {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 200px;
+  height: 100px;
+  background: green;
+}
+
+#azul {
+  position: absolute;
+  top: 30px;
+  left: 400px;
+  width: 200px;
+  height: 100px;
+  background: blue;
+}
+
