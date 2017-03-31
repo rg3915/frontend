@@ -2,7 +2,7 @@
 
 Testando CSS, JavaScript, jQuery, Ajax, AngularJS, Django e mais...
 
-E [interfaces web] do Curso de Verão IME USP 2017.
+E [interfaces web][2] do Curso de Verão IME USP 2017.
 
 Eu tenho duas **branchs**:
 
@@ -20,16 +20,23 @@ Estudo de Frontend incluindo [Django Framework][0].
 
 Dentro do projeto Django tenho várias **apps**:
 
-* front-django-basic (djbasic)
+#### front-django-basic
 
-* front-django-learning (djlearning)
+App: djbasic
+
+#### front-django-learning
+
+App: djlearning
 
 Baseado em [simple_ajax_crud][1].
 
-* front-django-experience (djexperience)
+#### front-django-experience
+
+App: djexperience
 
 Minhas experiências enquanto estudo frontend.
 
 
 [0]: https://www.djangoproject.com/
 [1]: https://github.com/olivx/simple_ajax_crud
+[2]: https://github.com/rg3915/frontend/tree/master/interfaces_web
