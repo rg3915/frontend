@@ -1,33 +1,34 @@
 # frontend
 
-Testing CSS, JavaScript, jQuery, Ajax, AngularJS, Django and more...
+Testando CSS, JavaScript, jQuery, Ajax, AngularJS, Django e mais...
 
-And [interfaces web] by Summer School IME USP 2017.
+E [interfaces web] do Curso de Verão IME USP 2017.
 
-I have some **branchs**:
-
+Eu tenho duas **branchs**:
 
 ### gh-pages
 
-The basic of the frontend design.
+O básico do frontend.
 
-For static web page online in rg3915.github.io/frontend
+Site estático online em rg3915.github.io/frontend
 
+Leia também [Head básico de um HTML]()
 
-### front-django-basic
+### master
 
-Frontend study including [Django Framework][0].
+Estudo de Frontend incluindo [Django Framework][0].
 
+Dentro do projeto Django tenho várias **apps**:
 
-### front-django-learning
+* front-django-basic (djbasic)
 
-Frontend study including [Django Framework][0] based in the [simple_ajax_crud][1].
+* front-django-learning (djlearning)
 
+Baseado em [simple_ajax_crud][1].
 
-### front-django-experience
+* front-django-experience (djexperience)
 
-My experiences while studying frontend.
-
+Minhas experiências enquanto estudo frontend.
 
 
 [0]: https://www.djangoproject.com/
