@@ -22,17 +22,17 @@ Dentro do projeto Django tenho várias **apps**:
 
 #### front-django-basic
 
-App: djbasic
+**App:** `djbasic`
 
 #### front-django-learning
 
-App: djlearning
+**App:** `djlearning`
 
 Baseado em [simple_ajax_crud][1].
 
 #### front-django-experience
 
-App: djexperience
+**App:** `djexperience`
 
 Minhas experiências enquanto estudo frontend.
 
