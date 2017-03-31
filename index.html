@@ -103,7 +103,7 @@
         <p>Testando CSS, JavaScript, jQuery, Ajax, AngularJS, Django e mais...</p>
         <p>E <a href="">interfaces web</a> do Curso de Verão IME USP 2017.</p>
         <p>
-          <a class="btn btn-primary btn-large" href="https://github.com/rg3915/frontend">Veja o projeto no GitHub</a>
+          <a class="btn btn-primary btn-large" href="https://github.com/rg3915/frontend" target="_blank">Veja o projeto no GitHub</a>
         </p>
       </div>
     </div>
@@ -122,8 +122,10 @@
     <div class="col-md-4">
       <h2>Lendo dados de um JSON com jQuery</h2>
       <p>Você pode validar o JSON em <a href="http://jsonlint.com/">jsonlint.com</a>.</p>
-      <button id="btn-dynamic-component" class="btn btn-primary">Clique aqui</button>
-      <div>
+      <div class="col-sm-4">
+        <button id="btn-dynamic-component" class="btn btn-primary">Clique aqui</button>
+      </div>
+      <div class="col-sm-6" style="background-color: #eee; min-height:150px">
         <ul id="ul_id"></ul>
       </div>
     </div>
@@ -146,7 +148,7 @@
     $("#btn-dynamic-component").click(function() {
       // Reinicia a ul
       $('#ul_id li').remove();
-      var data = '{"red": "#f00", "green": "#0f0", "blue": "#00f", "cyan": "#0ff", "magenta": "#f0f", "yellow": "#ff0", "black": "#000"}'
+      var data = '{"red": "#f00", "green": "#0f0", "blue": "#00f", "cyan": "#0ff", "magenta": "#f0f", "yellow": "#ff0", "black": "#000", "grey": "#eee"}'
       var result = $.parseJSON(data);
       $.each(result , function(key, value) {
         $('#ul_id').append("<li>" + key + " - " + value + "</li>");
