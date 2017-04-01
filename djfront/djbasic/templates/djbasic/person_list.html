@@ -6,7 +6,7 @@
 
 	<div class="page-header">
 			<a class="ui primary button pull-right" href="{% url 'djbasic:person_add' %}"><i class="fa fa-plus"></i> Adicionar</a>
-      <button class="ui button pull-right">Add</button>
+      <button id="modal-semantic" class="ui button pull-right">Add</button>
 		<h1>Lista de Contatos</h1>
 	</div>
 
@@ -35,28 +35,30 @@
 </div>
 
 <div class="ui modal">
-  <i class="close icon"></i>
+  <i class="fa fa-close"></i>
   <div class="header">
-    Profile Picture
+    Modal Title
   </div>
   <div class="image content">
-    <div class="ui medium image">
+    <div class="image">
+      An image can appear on left or an icon
     </div>
     <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
+      A description can appear on the right
     </div>
   </div>
   <div class="actions">
-    <div class="ui black deny button">
-      Nope
-    </div>
-    <div class="ui positive right labeled icon button">
-      Yep, that's me
-      <i class="checkmark icon"></i>
-    </div>
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
   </div>
 </div>
 
 {% endblock content %}
+
+{% block js %}
+  <script>
+  $("#modal-semantic").on('click', function() {
+    $('.ui.modal').modal();
+  });
+  </script>
+{% endblock js %}
