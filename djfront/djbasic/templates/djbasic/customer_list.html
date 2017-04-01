@@ -49,7 +49,7 @@
           <h3 class="modal-title">Cliente</h3>
         </div> <!-- header -->
 
-        <form id="task-form" class="js-task-create-form" action="." method="POST">
+        <form id="task-form" class="js-task-create-form" action="{% url 'djbasic:customer_save' %}" data-urlredirect="{% url 'djbasic:customer_list' %}" method="POST">
           <div class="modal-body">
             <!-- if this form is sent only via ajax you don't need this:
             { csrf_token %}
