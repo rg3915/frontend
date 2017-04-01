@@ -12,11 +12,11 @@ def home(request):
 
 def customer_list(request):
     customers = Customer.objects.all()
-    return render(request, 'core/customer_list.html', {'customers': customers})
+    return render(request, 'djbasic/customer_list.html', {'customers': customers})
 
 
 def customer_add(request):
-    return render(request, 'core/customer_add.html')
+    return render(request, 'djbasic/customer_add.html')
 
 
 @csrf_exempt

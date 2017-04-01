@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # thirty apps
     'django_extensions',
+    'semanticuiform',
     # my apps
     'djfront.core',
     'djfront.djbasic',
