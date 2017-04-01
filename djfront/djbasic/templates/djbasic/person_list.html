@@ -5,7 +5,8 @@
 <div class="container">
 
 	<div class="page-header">
-			<a class="ui primary button pull-right" href="{% url 'djbasic:person_add' %}"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
+			<a class="ui primary button pull-right" href="{% url 'djbasic:person_add' %}"><i class="fa fa-plus"></i> Adicionar</a>
+      <button class="ui button pull-right">Add</button>
 		<h1>Lista de Contatos</h1>
 	</div>
 
@@ -32,4 +33,30 @@
 		<p class="alert alert-warning">Sem itens na lista.</p>
 	{% endif %}
 </div>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
