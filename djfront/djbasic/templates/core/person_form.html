@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load semanticui %}
+
+{% block content %}
+    <form class="ui form" method="POST">
+      <legend>Person Form</legend>
+      {% csrf_token %}
+      <div class="two fields">
+        {{ form.name|semanticui }}
+        {{ form.age|semanticui }}
+      </div>
+      <div>
+        <div class="field">
+          <label>Description</label>
+          <textarea name="description" id="id_description"></textarea>
+        </div>
+      </div>
+      <button class="ui primary button" type="submit" id="id_submit">Submit</button>
+    </form>
+
+{% endblock content %}
