@@ -12,7 +12,9 @@ def home(request):
 
 def customer_list(request):
     customers = Customer.objects.all()
-    return render(request, 'djbasic/customer_list.html', {'customers': customers})
+    form = CustomerForm()
+    ctx = {'customers': customers, 'form': form}
+    return render(request, 'djbasic/customer_list.html', ctx)
 
 
 def customer_add(request):

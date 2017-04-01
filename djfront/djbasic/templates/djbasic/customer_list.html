@@ -1,33 +1,77 @@
 {% extends "base.html" %}
+{% load static %}
+{% load bootstrap %}
 
 {% block content %}
 
 <div class="container">
 
-	<div class="page-header">
-		<a class="btn btn-primary pull-right" href="{% url 'core:customer_add' %}"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
-		<h1>Lista de Clientes</h1>
-	</div>
+  <div class="page-header">
+    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-customer">
+      <!-- O data-target abre o modal com Bootstrap -->
+      <span class="glyphicon glyphicon-plus"></span> Adicionar
+    </button>
 
-	{% if customers %}
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>e-mail</th>
-				</tr>
-			</thead>
-			<tbody>
-			{% for customer in customers %}
-				<tr>
-					<td>{{ customer.name }}</td>
-					<td>{{ customer.email }}</td>
-				</tr>
-			{% endfor %}
-			</tbody>
-		</table>
-	{% else %}
-		<p class="alert alert-warning">Sem itens na lista.</p>
-	{% endif %}
+    <h1>Lista de Clientes</h1>
+  </div>
+
+  {% if customers %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>e-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="alert alert-warning">Sem itens na lista.</p>
+  {% endif %}
 </div>
+
+<!-- Modal -->
+<!-- O form é inserido aqui via JS -->
+<div id="modal-customer" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" aria-label="Close" data-dismiss="modal" type="button">
+            <span aria-hidden="True">&times;</span>
+          </button>
+          <h3 class="modal-title">Cliente</h3>
+        </div> <!-- header -->
+
+        <form id="task-form" class="js-task-create-form" action="." method="POST">
+          <div class="modal-body">
+            <!-- if this form is sent only via ajax you don't need this:
+            { csrf_token %}
+            -->
+            {{ form|bootstrap }}
+          </div> <!-- body -->
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Concluir</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div> <!-- footer -->
+      </form>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
+
+{% block js %}
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    // Abrir Modal
+    // $("#modal-customer").modal('show');
+    </script>
+{% endblock js %}
