@@ -36,7 +36,23 @@ Baseado em [simple_ajax_crud][1].
 
 Minhas experiências enquanto estudo frontend.
 
+## Instalação
+
+```
+python -m venv .venv # Python 3
+source .venv/bin/activate
+git clone https://github.com/rg3915/frontend
+cd frontend
+python contrib/env_gen.py
+make setup
+```
+
+### Semantic-UI form
+
+Estou experimentando o [django-semanticui-form][3] e [semantic-ui][4] templates.
 
 [0]: https://www.djangoproject.com/
 [1]: https://github.com/olivx/simple_ajax_crud
 [2]: https://github.com/rg3915/frontend/tree/master/interfaces_web
+[3]: https://www.peterbe.com/plog/django-semanticui-form
+[4]: http://semantic-ui.com/
