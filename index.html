@@ -10,11 +10,10 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="static/css/main.css">
 
   <title>Front End Examples</title>
+
 </head>
 <body>
 
@@ -97,6 +96,18 @@
         
       </nav>
 
+      <!-- Barra de cores -->
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+      <div class="color_me"><div class="color_me_hover"></div></div>
+
       <div class="jumbotron">
         <h1>Frontend examples</h1>
         <p>Testes e exemplos de frontend.</p>
@@ -105,6 +116,7 @@
         <p>
           <a class="btn btn-primary btn-large" href="https://github.com/rg3915/frontend" target="_blank">Veja o projeto no GitHub</a>
         </p>
+        <p>Sobre cores veja <a href="http://thestocks.im/">thestocks</a>.</p>
       </div>
     </div>
   </div>
@@ -144,19 +156,10 @@
   </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-    $("#btn-dynamic-component").click(function() {
-      // Reinicia a ul
-      $('#ul_id li').remove();
-      var data = '{"red": "#f00", "green": "#0f0", "blue": "#00f", "cyan": "#0ff", "magenta": "#f0f", "yellow": "#ff0", "black": "#000", "grey": "#eee"}'
-      var result = $.parseJSON(data);
-      $.each(result , function(key, value) {
-        $('#ul_id').append("<li>" + key + " - " + value + "</li>");
-      })
-    });
-  })
-</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="static/js/random-colors.js"></script>
+<script src="static/js/list-json.js"></script>
 
 </body>
 </html>
