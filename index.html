@@ -97,16 +97,18 @@
       </nav>
 
       <!-- Barra de cores -->
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
-      <div class="color_me"><div class="color_me_hover"></div></div>
+      <!-- Clicando na div copia o texto para o clipboard -->
+      <!-- https://clipboardjs.com/ -->
+      <div class="color_me"><div id="change-color" title="Clique para trocar a cor">Clique aqui</div></div>
+      <div class="color_me"><div id="color1" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color1" title="Copiar"></div></div>
+      <div class="color_me"><div id="color2" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color2" title="Copiar"></div></div>
+      <div class="color_me"><div id="color3" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color3" title="Copiar"></div></div>
+      <div class="color_me"><div id="color4" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color4" title="Copiar"></div></div>
+      <div class="color_me"><div id="color5" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color5" title="Copiar"></div></div>
+      <div class="color_me"><div id="color6" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color6" title="Copiar"></div></div>
+      <div class="color_me"><div id="color7" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color7" title="Copiar"></div></div>
+      <div class="color_me"><div id="color8" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color8" title="Copiar"></div></div>
+      <div class="color_me"><div id="color9" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color9" title="Copiar"></div></div>
 
       <div class="jumbotron">
         <h1>Frontend examples</h1>
@@ -158,8 +160,24 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="static/js/clipboard.min.js"></script>
+<!-- my js -->
 <script src="static/js/random-colors.js"></script>
 <script src="static/js/list-json.js"></script>
+
+<!-- Instantiate clipboard -->
+<!-- https://clipboardjs.com/ -->
+<script>
+  var clipboard = new Clipboard('.color_me_hover');
+
+  clipboard.on('success', function(e) {
+    console.log(e);
+  });
+
+  clipboard.on('error', function(e) {
+    console.log(e);
+  });
+</script>
 
 </body>
 </html>

@@ -10,7 +10,9 @@ function getRandomColor() {
 $('.color_me').css("background-color", getRandomColor); 
 $('.color_me_hover').text(getRandomColor); 
 
-$('.color_me').click(function() {
-  $(this).css("background-color", getRandomColor); 
-  $(this).children().text(getRandomColor); 
+$('#change-color').click(function() {
+  // $(this).css("background-color", getRandomColor); 
+  // $(this).children().text(getRandomColor); 
+  $('.color_me').css("background-color", getRandomColor); 
+  $('.color_me_hover').text(getRandomColor); 
 });
