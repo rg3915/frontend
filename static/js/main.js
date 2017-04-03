@@ -5,13 +5,6 @@ $.fn.extend({
   }
 });
 
-$(".btn_class").on('click', function(e) {
-  e.preventDefault();
-  // Pega o próximo elemento, no caso o primeiro parágrafo.
-  $(this).next().fadeToggle('slow', 'linear');
-  $(this).toggleText('Ocultar', 'Mostrar');
-});
-
 // Alterna botão
 $("#btn-dynamic-component").click(function(e) {
   e.preventDefault();
@@ -22,5 +15,12 @@ $("#btn-dynamic-component").click(function(e) {
 $("#btn_id").click(function(e) {
   e.preventDefault();
   $("#ul_id").toggle();
+  $(this).toggleText('Ocultar', 'Mostrar');
+});
+
+$(".btn_class").on('click', function(e) {
+  e.preventDefault();
+  // Pega o próximo elemento, no caso o primeiro parágrafo.
+  $(this).next().fadeToggle('slow', 'linear');
   $(this).toggleText('Ocultar', 'Mostrar');
 });
