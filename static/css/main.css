@@ -17,3 +17,6 @@ body {
 .color_me:hover > .color_me_hover {
   display: block;
 }
+.vacation {
+  list-style-type: none;
+}
