@@ -6,6 +6,6 @@ $(document).ready(function() {
     var result = $.parseJSON(data);
     $.each(result , function(key, value) {
       $('#ul_id').append("<li>" + key + " - " + value + "</li>");
-    })
+    });
   });
 })
