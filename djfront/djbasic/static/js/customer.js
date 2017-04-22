@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $('form').submit(function(event) {
-    event.preventDefault();
+  $('form').submit(function(e) {
+    e.preventDefault();
     // console.log(this.data('urlredirect')); // TypeError: this.data is not a function
     console.log($(this).attr('data-urlredirect'));
     urlredirect = $(this).data('urlredirect');
