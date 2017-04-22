@@ -50,14 +50,19 @@ def customer_save(request):
 def customer_edit(request, pk):
     if request.is_ajax() and request.method == 'POST':
         pk = request.POST.get('customer_id')
-        customer = get_object_or_404(Customer, pk=pk)
         # Edita o próprio customer que foi pego pelo id.
-        customer.name = request.POST.get('name')
-        customer.email = request.POST.get('email')
-        customer.save()
+        customer = get_object_or_404(Customer, pk=pk)
+        # Usando instance não precisa pegar os campos um a um.
+        form = CustomerForm(request.POST, instance=customer)
 
-        status = 'update'
-        response = {'status': status}
+        if not form.is_valid():
+            error = {'error': form.errors}
+            return JsonResponse(error, status=422)
+
+        # customer.name = request.POST.get('name')
+        # customer.email = request.POST.get('email')
+        customer.save()
+        response = {'status': 'update'}
         return JsonResponse(response)
     else:
         return HttpResponseRedirect(reverse_lazy('customer_list'))
@@ -68,7 +73,7 @@ def customer_delete(request, pk):
         pk = request.POST.get('customer_id')
         customer = get_object_or_404(Customer, pk=pk)
         customer.delete()
-        response = {'status': 'update'}
+        response = {'status': 'delete'}
         return JsonResponse(response)
     else:
         return HttpResponseRedirect(reverse_lazy('customer_list'))
