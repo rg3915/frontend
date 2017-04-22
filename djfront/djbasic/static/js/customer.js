@@ -36,22 +36,15 @@ $(".tr-customer").on('click', '.js-customer-edit', function(e) {
 });
 
 // Edit Customer
-// O this não funciona (vira Window) se for .on('submit', ...
 $("#customer-form-edit").submit(function(e) {
   e.preventDefault();
-  edit_customer();
-});
-
-function edit_customer() {
-  // Aqui o this vira Window.
-  var $this = $("#customer-form-edit")
-  var id = $this.data('id');
-  var url = $this.data('url');
-  var urlredirect = $this.data('urlredirect');
+  var id = $(this).data('id');
+  var url = $(this).data('url');
+  var urlredirect = $(this).data('urlredirect');
   $.ajax({
     url: url,
     type: 'POST',
-    data: $this.serialize() + "&customer_id=" + id,
+    data: $(this).serialize() + "&customer_id=" + id,
     dataType: 'json',
     success: function(data){
       location.href = urlredirect;
@@ -60,4 +53,30 @@ function edit_customer() {
       console.error(settings.url, response, error.toString());
     }
   });
-};
+});
+
+// O this não funciona (vira Window) se for .on('submit', ...
+// $("#customer-form-edit").submit(function(e) {
+//   e.preventDefault();
+//   edit_customer();
+// });
+
+// function edit_customer() {
+//   // Aqui o this vira Window.
+//   var $this = $("#customer-form-edit")
+//   var id = $this.data('id');
+//   var url = $this.data('url');
+//   var urlredirect = $this.data('urlredirect');
+//   $.ajax({
+//     url: url,
+//     type: 'POST',
+//     data: $this.serialize() + "&customer_id=" + id,
+//     dataType: 'json',
+//     success: function(data){
+//       location.href = urlredirect;
+//     },
+//     error: function(error, response, settings){
+//       console.error(settings.url, response, error.toString());
+//     }
+//   });
+// };
