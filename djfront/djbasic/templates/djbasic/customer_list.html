@@ -29,11 +29,20 @@
         <tr class="tr-customer">
           <td>{{ customer.name }}</td>
           <td>{{ customer.email }}</td>
-          <td><i  class="fa fa-edit pull-right js-customer-edit"
+          <td>
+            <!-- Delete Customer -->
+            <i  class="fa fa-close pull-right js-customer-delete"
+                style="color: #0066FF; text-decoration: none; cursor: pointer; margin-left:10px"
+                data-id="{{ customer.pk }}"
+                data-url="{% url 'djbasic:customer_delete' customer.pk %}"
+                ></i>
+            <!-- Edit Customer -->
+            <i  class="fa fa-edit pull-right js-customer-edit"
                 style="color: #0066FF; text-decoration: none; cursor: pointer"
                 data-id="{{ customer.pk }}"
                 data-url="{% url 'djbasic:customer_edit' customer.pk %}"
-                ></i></td>
+                ></i>
+          </td>
         </tr>
       {% endfor %}
       </tbody>

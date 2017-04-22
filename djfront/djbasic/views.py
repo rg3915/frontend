@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponseNotAllowed, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, ListView
@@ -58,6 +58,17 @@ def customer_edit(request, pk):
 
         status = 'update'
         response = {'status': status}
+        return JsonResponse(response)
+    else:
+        return HttpResponseRedirect(reverse_lazy('customer_list'))
+
+
+def customer_delete(request, pk):
+    if request.is_ajax() and request.method == 'POST':
+        pk = request.POST.get('customer_id')
+        customer = get_object_or_404(Customer, pk=pk)
+        customer.delete()
+        response = {'status': 'update'}
         return JsonResponse(response)
     else:
         return HttpResponseRedirect(reverse_lazy('customer_list'))

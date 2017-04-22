@@ -80,3 +80,22 @@ $("#customer-form-edit").submit(function(e) {
 //     }
 //   });
 // };
+
+// Delete Customer
+$(".tr-customer").on('click', '.js-customer-delete', function(e) {
+  e.preventDefault();
+  var id = $(this).data('id');
+  var url = $(this).data('url');
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: {customer_id: id},
+    success: function(data){
+      console.log(data);
+    },
+    error: function(error, response, settings){
+      console.error(settings.url, response, error.toString());
+    }
+  });
+  $(this).closest('.tr-customer').remove();
+});
