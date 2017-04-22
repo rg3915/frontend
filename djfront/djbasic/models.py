@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField('nome', max_length=50)
     email = models.EmailField()
 
     class Meta:
@@ -15,9 +15,9 @@ class Customer(models.Model):
 
 
 class Person(models.Model):
-    name = models.CharField(max_length=50)
-    age = models.IntegerField(null=True, blank=True)
-    description = models.TextField(blank=True)
+    name = models.CharField('nome', max_length=50)
+    age = models.IntegerField('idade', null=True, blank=True)
+    description = models.TextField('descrição', blank=True)
 
     class Meta:
         ordering = ['name']
