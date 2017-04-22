@@ -1,5 +1,6 @@
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
-from django.http import HttpResponseNotAllowed, JsonResponse
+from django.http import HttpResponseRedirect, HttpResponseNotAllowed, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, ListView
 from .models import Customer, Person
@@ -44,6 +45,22 @@ def customer_save(request):
     Customer.objects.create(name=name, email=email)
     message = '{name} ({email}) added.'.format(name=name, email=email)
     return JsonResponse({'message': message})
+
+
+def customer_edit(request, pk):
+    if request.is_ajax() and request.method == 'POST':
+        pk = request.POST.get('customer_id')
+        customer = Customer.objects.get(pk=pk)
+        # Edita o próprio customer que foi pego pelo id.
+        customer.name = request.POST.get('name')
+        customer.email = request.POST.get('email')
+        customer.save()
+
+        status = 'update'
+        response = {'status': status}
+        return JsonResponse(response)
+    else:
+        return HttpResponseRedirect(reverse_lazy('customer_list'))
 
 
 person_create = CreateView.as_view(

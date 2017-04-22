@@ -21,13 +21,19 @@
         <tr>
           <th>Nome</th>
           <th>e-mail</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
       {% for customer in customers %}
-        <tr>
+        <tr class="tr-customer">
           <td>{{ customer.name }}</td>
           <td>{{ customer.email }}</td>
+          <td><i  class="fa fa-edit pull-right js-customer-edit"
+                style="color: #0066FF; text-decoration: none; cursor: pointer"
+                data-id="{{ customer.pk }}"
+                data-url="{% url 'djbasic:customer_edit' customer.pk %}"
+                ></i></td>
         </tr>
       {% endfor %}
       </tbody>
@@ -38,7 +44,6 @@
 </div>
 
 <!-- Modal -->
-<!-- O form é inserido aqui via JS -->
 <div id="modal-customer" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -46,10 +51,10 @@
           <button class="close" aria-label="Close" data-dismiss="modal" type="button">
             <span aria-hidden="True">&times;</span>
           </button>
-          <h3 class="modal-title">Cliente</h3>
+          <h3 class="modal-title">Cadastrar Cliente</h3>
         </div> <!-- header -->
 
-        <form id="task-form" class="js-task-create-form" action="{% url 'djbasic:customer_save' %}" data-urlredirect="{% url 'djbasic:customer_list' %}" method="POST">
+        <form id="customer-form" action="{% url 'djbasic:customer_save' %}" data-urlredirect="{% url 'djbasic:customer_list' %}" method="POST">
           <div class="modal-body">
             <!-- if this form is sent only via ajax you don't need this:
             { csrf_token %}
@@ -58,7 +63,34 @@
           </div> <!-- body -->
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Concluir</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div> <!-- footer -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Editar Customer -->
+<div id="modal-customer-edit" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" aria-label="Close" data-dismiss="modal" type="button">
+            <span aria-hidden="True">&times;</span>
+          </button>
+          <h3 class="modal-title">Editar Cliente</h3>
+        </div> <!-- header -->
+
+        <form id="customer-form-edit" action="." data-id="" data-url="" data-urlredirect="{% url 'djbasic:customer_list' %}" method="POST">
+          <div class="modal-body">
+            <!-- if this form is sent only via ajax you don't need this: -->
+            {% csrf_token %}
+            {{ form|bootstrap }}
+          </div> <!-- body -->
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
         </div> <!-- footer -->
       </form>
