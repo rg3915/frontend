@@ -50,7 +50,7 @@ def customer_save(request):
 def customer_edit(request, pk):
     if request.is_ajax() and request.method == 'POST':
         pk = request.POST.get('customer_id')
-        customer = Customer.objects.get(pk=pk)
+        customer = get_object_or_404(Customer, pk=pk)
         # Edita o próprio customer que foi pego pelo id.
         customer.name = request.POST.get('name')
         customer.email = request.POST.get('email')
