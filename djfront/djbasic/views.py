@@ -1,6 +1,8 @@
+from django.core import serializers
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponseNotAllowed, JsonResponse
+from django.http import (HttpResponse, HttpResponseRedirect,
+                         HttpResponseNotAllowed, JsonResponse)
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, ListView
 from .models import Customer, Person
@@ -77,6 +79,12 @@ def customer_delete(request, pk):
         return JsonResponse(response)
     else:
         return HttpResponseRedirect(reverse_lazy('customer_list'))
+
+
+def customer_json(request):
+    customers = Customer.objects.all()
+    data = serializers.serialize('json', customers)
+    return HttpResponse(data, content_type='application/json')
 
 
 person_create = CreateView.as_view(
