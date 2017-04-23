@@ -31,6 +31,7 @@ $(".tr-customer").on('click', '.js-customer-edit', function(e) {
   let email = $(this).closest('.tr-customer').find('td').first().next().text();
   $("#id_name").val(name);
   $("#id_email").val(email);
+  // Definindo data-id e data-url com os valores de js-customer-edit.
   $("#customer-form-edit").attr('data-id', $(this).data('id'));
   $("#customer-form-edit").attr('data-url', $(this).data('url'));
 });
@@ -81,8 +82,19 @@ $("#customer-form-edit").submit(function(e) {
 //   });
 // };
 
-// Delete Customer
+// Abrindo o modal para confirmar o delete
 $(".tr-customer").on('click', '.js-customer-delete', function(e) {
+  e.preventDefault();
+  $("#modal-customer-delete").modal('show');
+  // Definindo data-id e data-url com os valores de js-customer-delete.
+  $("#customer-form-delete").attr('data-id', $(this).data('id'));
+  $("#customer-form-delete").attr('data-url', $(this).data('url'));
+  // Inserindo classe
+  $(this).addClass('deactive');
+});
+
+// Delete Customer
+$("#customer-form-delete").submit(function(e) {
   e.preventDefault();
   var id = $(this).data('id');
   var url = $(this).data('url');
@@ -92,10 +104,12 @@ $(".tr-customer").on('click', '.js-customer-delete', function(e) {
     data: {customer_id: id},
     success: function(data){
       console.log(data);
+      $("#modal-customer-delete").modal('hide');
+      $(".deactive").closest('.tr-customer').remove();
     },
     error: function(error, response, settings){
       console.error(settings.url, response, error.toString());
     }
   });
-  $(this).closest('.tr-customer').remove();
 });
+
