@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="page-header">
+    <button id="btn-customer-add" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-customer">
+      <!-- O data-target abre o modal com Bootstrap -->
+      <span class="glyphicon glyphicon-plus"></span> Adicionar
+    </button>
+
+    <h1>Lista de Clientes</h1>
+  </div>
+
+  {% if customers %}
+    <table id="customers" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>e-mail</th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+  {% else %}
+    <p class="alert alert-warning">Sem itens na lista.</p>
+  {% endif %}
+
+{% endblock content %}
+
+{% block js %}
+  <script src="{% static 'js/customer.js' %}"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#customers').dataTable({
+        "processing": true,
+        "ajax": {
+          "processing": true,
+          "url": "{% url 'djbasic:customer_json' %}",
+          "dataSrc": ""
+        },
+        "columns": [
+          { "data": "fields.name" },
+          { "data": "fields.email" },
+          {
+            data: null,
+            className: "center",
+            defaultContent: '<i  class="fa fa-close pull-right js-customer-delete"style="color: #0066FF; text-decoration: none; cursor: pointer; margin-left:10px"data-id=""data-url=""></i> <i  class="fa fa-edit pull-right js-customer-edit"style="color: #0066FF; text-decoration: none; cursor: pointer"data-id=""data-url=""></i>'
+          },
+        ],
+        createdRow: function (row, data, index) {
+          console.dir(row);
+          $(row).addClass('tr-customer');
+        }
+      });
+    });
+
+    // $(".tr-customer").on('mouseover', '.js-customer-delete', function() {
+      // Definindo data-id com os valores de .tr-customer
+    //   $(this).data('id', $(this).closest('.tr-customer').data('id'));
+    // });
+  </script>
+{% endblock js %}

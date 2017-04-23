@@ -20,6 +20,19 @@ def customer_list(request):
     return render(request, 'djbasic/customer_list.html', ctx)
 
 
+def customer_list_datatable(request):
+    customers = Customer.objects.all()
+    form = CustomerForm()
+    ctx = {'customers': customers, 'form': form}
+    return render(request, 'djbasic/customer_list_datatable.html', ctx)
+
+
+def customer_json(request):
+    customers = Customer.objects.all()
+    data = serializers.serialize('json', customers)
+    return HttpResponse(data, content_type='application/json')
+
+
 def customer_add(request):
     return render(request, 'djbasic/customer_add.html')
 
@@ -79,12 +92,6 @@ def customer_delete(request, pk):
         return JsonResponse(response)
     else:
         return HttpResponseRedirect(reverse_lazy('customer_list'))
-
-
-def customer_json(request):
-    customers = Customer.objects.all()
-    data = serializers.serialize('json', customers)
-    return HttpResponse(data, content_type='application/json')
 
 
 person_create = CreateView.as_view(

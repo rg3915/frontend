@@ -16,19 +16,6 @@
   </div>
 
   {% if customers %}
-    <table id="customers" class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>e-mail</th>
-        </tr>
-      </thead>
-    </table>
-  {% else %}
-    <p class="alert alert-warning">Sem itens na lista.</p>
-  {% endif %}
-
-  {% if customers %}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -147,19 +134,4 @@
 
 {% block js %}
   <script src="{% static 'js/customer.js' %}"></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#customers').dataTable({
-        "bServerSide": true,
-        "sAjaxSource": "/customer/json/",
-        "bProcessing": true,
-        "aoColumns": [
-                      { "sName": "NAME" },
-                      { "sName": "EMAIL" },
-                    ]
-      });
-    });
-  </script>
 {% endblock js %}

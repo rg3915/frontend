@@ -84,6 +84,8 @@ $("#customer-form-edit").submit(function(e) {
 
 // Abrindo o modal para confirmar o delete
 $(".tr-customer").on('click', '.js-customer-delete', function() {
+  // Definindo data-id com os valores de .tr-customer
+  // $(this).data('id', $(this).closest('.tr-customer').data('id'));
   // Inserindo classe
   $(this).addClass('deactive');
   // Abrindo modal
