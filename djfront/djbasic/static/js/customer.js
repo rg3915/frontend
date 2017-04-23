@@ -83,14 +83,18 @@ $("#customer-form-edit").submit(function(e) {
 // };
 
 // Abrindo o modal para confirmar o delete
-$(".tr-customer").on('click', '.js-customer-delete', function(e) {
-  e.preventDefault();
-  $("#modal-customer-delete").modal('show');
-  // Definindo data-id e data-url com os valores de js-customer-delete.
-  $("#customer-form-delete").attr('data-id', $(this).data('id'));
-  $("#customer-form-delete").attr('data-url', $(this).data('url'));
+$(".tr-customer").on('click', '.js-customer-delete', function() {
   // Inserindo classe
   $(this).addClass('deactive');
+  // Abrindo modal
+  $("#modal-customer-delete").modal('show');
+  // Definindo data-id e data-url com os valores de js-customer-delete.
+  // Não use attr('data-id') pois ele não atualiza a cada clique.
+  $("#customer-form-delete").data('id', $(this).data('id'));
+  $("#customer-form-delete").data('url', $(this).data('url'));
+  // Pegando o nome do cliente.
+  let customer_name = $(this).closest('.tr-customer').find('td').first().text();
+  $("#customer-form-delete span").append(customer_name);
 });
 
 // Delete Customer
@@ -103,13 +107,14 @@ $("#customer-form-delete").submit(function(e) {
     type: 'POST',
     data: {customer_id: id},
     success: function(data){
-      console.log(data);
+      console.log('Deleted');
       $("#modal-customer-delete").modal('hide');
-      $(".deactive").closest('.tr-customer').remove();
+      $(".deactive").closest('.tr-customer').fadeTo('slow', 0.5, function() {
+        $(this).remove();
+      });
     },
     error: function(error, response, settings){
       console.error(settings.url, response, error.toString());
     }
   });
 });
-
