@@ -50,19 +50,22 @@
           {
             data: null,
             className: "center",
-            defaultContent: '<i  class="fa fa-close pull-right js-customer-delete"style="color: #0066FF; text-decoration: none; cursor: pointer; margin-left:10px"data-id=""data-url=""></i> <i  class="fa fa-edit pull-right js-customer-edit"style="color: #0066FF; text-decoration: none; cursor: pointer"data-id=""data-url=""></i>'
+            render: function(data, type, full, meta) {
+              return  '<i  class="fa fa-close pull-right js-customer-delete"' + 
+                      'style="color: #0066FF; text-decoration: none; ' + 
+                      'cursor: pointer; margin-left:10px"data-id="' + data.pk + 
+                      '"data-url="' + '/customer/' + data.pk + '/delete/' + '"></i>' + 
+                      '<i  class="fa fa-edit pull-right js-customer-edit"' + 
+                      'style="color: #0066FF; text-decoration: none; ' + 
+                      'cursor: pointer"data-id="' + data.pk + 
+                      '"data-url="' + '/customer/' + data.pk + '/edit/' + '"></i>'
+            }
           },
         ],
-        createdRow: function (row, data, index) {
-          console.dir(row);
-          $(row).addClass('tr-customer');
-        }
       });
     });
-
-    // $(".tr-customer").on('mouseover', '.js-customer-delete', function() {
-      // Definindo data-id com os valores de .tr-customer
-    //   $(this).data('id', $(this).closest('.tr-customer').data('id'));
-    // });
+    $("#customers").on('click', '.js-customer-delete', function() {
+      console.log('test delete', $(this).data('id'));
+    });
   </script>
 {% endblock js %}
