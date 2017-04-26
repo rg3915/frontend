@@ -21,7 +21,7 @@ $('#customer-form').submit(function(e) {
 });
 
 // Preenchendo o form '#customer-form-edit'.
-$(".tr-customer").on('click', '.js-customer-edit', function(e) {
+$("#customers").on('click', '.tr-customer .js-customer-edit', function(e) {
   e.preventDefault();
   // $(this) is '.js-customer-edit'
   $("#modal-customer").remove();
@@ -83,7 +83,7 @@ $("#customer-form-edit").submit(function(e) {
 // };
 
 // Abrindo o modal para confirmar o delete
-$(".tr-customer").on('click', '.js-customer-delete', function() {
+$("#customers").on('click', '.tr-customer .js-customer-delete', function() {
   // Definindo data-id com os valores de .tr-customer
   // $(this).data('id', $(this).closest('.tr-customer').data('id'));
   // Inserindo classe
@@ -96,6 +96,8 @@ $(".tr-customer").on('click', '.js-customer-delete', function() {
   $("#customer-form-delete").data('url', $(this).data('url'));
   // Pegando o nome do cliente.
   let customer_name = $(this).closest('.tr-customer').find('td').first().text();
+  // Limpando antes
+  $("#customer-form-delete span").empty();
   $("#customer-form-delete span").append(customer_name);
 });
 

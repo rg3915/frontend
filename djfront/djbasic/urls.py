@@ -10,7 +10,6 @@ customer_patterns = [
     url(r'^datatable/$', c.customer_list_datatable,
         name='customer_list_datatable'),
     url(r'^json/$', c.customer_json, name='customer_json'),
-
 ]
 
 person_patterns = [
