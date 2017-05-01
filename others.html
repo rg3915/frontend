@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="static/favicon.ico">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/css/main.css">
+
+  <title>Front End Examples</title>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+           
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button> <a class="navbar-brand" href="#">Frontend Example</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">CEP</a>
+            </li>
+            <li>
+              <a href="#">Flick Api</a>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajax get data<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="">count</a>
+            </li>
+            <li>
+              <a href="">JavaScript</a>
+            </li>
+            <li>
+              <a href="">Modal</a>
+            </li>
+            <li>
+              <a href="">jQuery</a>
+            </li>
+            <li>
+              <a href="">get data with jQuery</a>
+            </li>
+            <li>
+              <a href="">Slugify with jQuery</a>
+            </li>
+          </ul>
+          <!-- <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input class="form-control" type="text" />
+            </div> 
+            <button type="submit" class="btn btn-default">
+              Submit
+            </button>
+          </form> -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="https://github.com/rg3915/frontend"><span class="fa fa-github"></span> GitHub</a>
+            </li>
+          </ul>
+        </div>
+        
+      </nav>
+
+      <!-- Barra de cores -->
+      <!-- Clicando na div copia o texto para o clipboard -->
+      <!-- https://clipboardjs.com/ -->
+      <div class="color_me"><div id="change-color" title="Clique para trocar a cor">Clique aqui</div></div>
+      <div class="color_me"><div id="color1" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color1" title="Copiar"></div></div>
+      <div class="color_me"><div id="color2" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color2" title="Copiar"></div></div>
+      <div class="color_me"><div id="color3" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color3" title="Copiar"></div></div>
+      <div class="color_me"><div id="color4" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color4" title="Copiar"></div></div>
+      <div class="color_me"><div id="color5" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color5" title="Copiar"></div></div>
+      <div class="color_me"><div id="color6" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color6" title="Copiar"></div></div>
+      <div class="color_me"><div id="color7" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color7" title="Copiar"></div></div>
+      <div class="color_me"><div id="color8" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color8" title="Copiar"></div></div>
+      <div class="color_me"><div id="color9" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color9" title="Copiar"></div></div>
+
+      <div class="jumbotron">
+        <h1>Frontend examples</h1>
+        <p>Testes e exemplos de frontend.</p>
+        <p>Testando CSS, JavaScript, jQuery, Ajax, AngularJS, Django e mais...</p>
+        <p>E <a href="">interfaces web</a> do Curso de Verão IME USP 2017.</p>
+        <p>
+          <a class="btn btn-primary btn-large" href="https://github.com/rg3915/frontend" target="_blank">Veja o projeto no GitHub</a>
+        </p>
+        <p>Sobre cores veja <a href="http://thestocks.im/">thestocks</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Preço</h2>
+      <ul>
+        <li class="vacation" data-price="R$ 3.450,00">
+          <h3>Férias Hawai</h3>
+          <button class="bestPrice">Preço</button>
+          <p>Exemplo de uso do método <code>closest()</code>.</p>
+        </li>
+      </ul>
+      <p><a class="btn" href="http://tiagoavila.com.br/funcao-closest-jquery/" target="_blank">Leia mais »</a></p>
+      <p><script src="https://gist.github.com/rg3915/1f26e01bb1fe322b00ae517de0238e44.js"></script></p>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Lendo dados de um JSON com jQuery</h2>
+      <p>Você pode validar o JSON em <a href="http://jsonlint.com/">jsonlint.com</a>.</p>
+      <div class="col-sm-4">
+        <button id="btn-dynamic-component" class="btn btn-primary">Clique aqui</button>
+        <button id="btn_id" class="btn btn-warning" style="display: none">Ocultar</button>
+        <p><a class="btn" href="https://github.com/rg3915/frontend/blob/master/docs/lendo-json-jquery.md" target="_blank">Leia mais »</a></p>
+      </div>
+      <div class="col-sm-6" style="background-color: #eee; min-height:150px">
+        <ul id="ul_id"></ul>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h2>Ocultar elemento</h2>
+      <button class="btn btn-success btn_class">Ocultar</button>
+      <p>Com o comando <code>fadeToggle()</code> podemos ocultar ou mostrar um elemento.</p>
+      <p><script src="https://gist.github.com/rg3915/321c3ae4d7225a896aeadacef230ac39.js"></script></p>
+      <p>
+        <a class="btn" href="http://robertgreiner.com/2012/04/using-github-as-a-syntax-highlighter/" target="_blank">Using Github as a Syntax Highlighter for Your Blog or Website »</a>
+      </p>
+    </div>
+  </div> <!-- row -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="static/js/clipboard.min.js"></script>
+<!-- my js -->
+<script src="static/js/main.js"></script>
+<script src="static/js/random-colors.js"></script>
+<script src="static/js/list-json.js"></script>
+<script src="static/js/vacation.js"></script>
+
+<!-- Instantiate clipboard -->
+<!-- https://clipboardjs.com/ -->
+<script>
+  var clipboard = new Clipboard('.color_me_hover');
+
+  clipboard.on('success', function(e) {
+    console.log(e);
+  });
+
+  clipboard.on('error', function(e) {
+    console.log(e);
+  });
+
+</script>
+
+</body>
+</html>

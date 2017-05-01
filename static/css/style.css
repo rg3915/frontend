@@ -1,0 +1,23 @@
+body {
+  margin-top: 50px;
+}
+.color_me {
+  display: block;
+  color: #fff;
+  width: 10%;
+  height: 50px;
+  text-align: center; /* centralizado */
+  line-height: 50px; /* alinhamento vertical */
+  cursor: pointer;
+  /* No, we don't care about IE5.5 which won't understand this (it expects "hand" instead) */
+  float: left;
+}
+.color_me_hover {
+  display: none;
+}
+.color_me:hover > .color_me_hover {
+  display: block;
+}
+.vacation {
+  list-style-type: none;
+}
