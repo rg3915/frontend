@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="static/favicon.ico">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <title>Frontend Examples</title>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+           
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button> <a class="navbar-brand" href="../index.html">Frontend Examples</a>
+        </div>
+      </nav>
+    </div>
+
+    <h2>Cores</h2>
+    <div>
+      <!-- Barra de cores -->
+      <!-- Clicando na div copia o texto para o clipboard -->
+      <!-- https://clipboardjs.com/ -->
+      <div class="color_me"><div id="change-color" title="Clique para trocar a cor">Clique aqui</div></div>
+      <div class="color_me"><div id="color1" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color1" title="Copiar"></div></div>
+      <div class="color_me"><div id="color2" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color2" title="Copiar"></div></div>
+      <div class="color_me"><div id="color3" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color3" title="Copiar"></div></div>
+      <div class="color_me"><div id="color4" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color4" title="Copiar"></div></div>
+      <div class="color_me"><div id="color5" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color5" title="Copiar"></div></div>
+      <div class="color_me"><div id="color6" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color6" title="Copiar"></div></div>
+      <div class="color_me"><div id="color7" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color7" title="Copiar"></div></div>
+      <div class="color_me"><div id="color8" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color8" title="Copiar"></div></div>
+      <div class="color_me"><div id="color9" class="color_me_hover" data-clipboard-action="copy" data-clipboard-target="#color9" title="Copiar"></div></div>
+    </div>
+    <p>Sobre cores veja <a href="http://thestocks.im/" target="_blank">thestocks</a>.</p>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- my js -->
+<script src="../static/js/main.js"></script>
+<script src="../static/js/clipboard.min.js"></script>
+<script src="../static/js/random-colors.js"></script>
+
+<!-- Instantiate clipboard -->
+<!-- https://clipboardjs.com/ -->
+<script>
+  var clipboard = new Clipboard('.color_me_hover');
+
+  clipboard.on('success', function(e) {
+    console.log(e);
+  });
+
+  clipboard.on('error', function(e) {
+    console.log(e);
+  });
+
+</script>
+
+</body>
+</html>
