@@ -7,6 +7,7 @@ reset=`tput sgr0`
 
 installdjango:
 	@pip install -r requirements.txt
+	@python contrib/env_gen.py
 
 migrate:
 	@./manage.py makemigrations core
