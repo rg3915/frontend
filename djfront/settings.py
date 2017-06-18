@@ -31,11 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # thirty apps
+    # third party apps
     'django_extensions',
     'bootstrapform',
     'semanticuiform',
-    # my apps
+    # djfront apps
     'djfront.core',
     'djfront.djbasic',
 ]
