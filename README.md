@@ -14,6 +14,8 @@ Site estático online em rg3915.github.io/frontend
 
 Leia também [Head básico de um HTML](https://github.com/rg3915/frontend/blob/master/docs/html-head-basico.md)
 
+Mini curso de VueJS by [Minicurso: VueJS](https://evolutio.io/curso/minicurso_vuejs) e repo em [github.com/evolutio/minicurso_vuejs](https://github.com/evolutio/minicurso_vuejs).
+
 ### master
 
 Estudo de Frontend incluindo [Django Framework][0].
