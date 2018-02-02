@@ -21,6 +21,10 @@ h6 {
     font-weight: 700;
 }
 
+.navbar-inner {
+    background:transparent;
+}
+
 .topnav {
     font-size: 14px; 
 }
