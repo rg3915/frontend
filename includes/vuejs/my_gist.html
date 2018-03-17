@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>My Gist</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="app" class="container" style="padding: 20px;">
+    <a href="/">Voltar</a>
+    <div class="field">
+      <div class="control">
+        <input type="text"
+        class="input"
+        placeholder="Search..."
+        v-model="search">
+      </div>
+    </div>
+    <div class="navbar">
+      <ul class="navbar-start">
+        <li class="navbar-item"><a @click="listar_gists(1)">1</a></li>
+        <li class="navbar-item"><a @click="listar_gists(2)">2</a></li>
+        <li class="navbar-item"><a @click="listar_gists(3)">3</a></li>
+      </ul>
+    </div>
+    <table class="table">
+      <tbody>
+        <tr v-for="item in filteredItems">
+          <td><a :href="item.url" target="_blank">{{ item.description }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+      items: [],
+      search: ''
+    },
+    methods: {
+      listar_gists(page){
+        axios.get('https://api.github.com/users/rg3915/gists?page=' + page)
+        .then((result) => {
+          this.items = result.data.map((item) => {
+            return {description: item.description, url: item.html_url}
+          })
+        })
+      }
+    },
+    mounted(){
+      this.listar_gists(1)
+    },
+    computed: {
+      filteredItems(){
+        return this.items.filter((item) => {
+          return item.description.toLowerCase().indexOf(this.search.toLowerCase())>=0;
+        });
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>
