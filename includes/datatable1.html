@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>DataTable Example</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- dataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- Bootstrap core JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- dataTables -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <nav class="navbar navbar-default navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+              
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+              </button> <a class="navbar-brand" href="../index.html">Frontend Examples</a>
+            </div>
+          </nav>
+
+          <table id="myTable">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+              </tr>
+            </thead>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable( {
+        "ajax": "../static/json/names1.json"
+      });
+    });
+    </script>
+
+  </body>
+</html>
