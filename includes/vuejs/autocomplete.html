@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="http://html5-training-in-hyderabad.blogspot.com.br/favicon.ico">
+  <title>Document</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Font-awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap core JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- https://github.com/BosNaufal/vue2-autocomplete -->
+  <link rel="stylesheet" href="static/vue2-autocomplete.css">
+  <script src="static/vue2-autocomplete.js"></script>
+</head>
+<body>
+  <div id="app">
+    <autocomplete
+      url="https://api.github.com/users/rg3915/gists?page=1"
+      anchor="description"
+      label="writer"
+      :on-select="getData">
+    </autocomplete>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      components: {
+        autocomplete: Autocomplete
+      },
+      data: {
+        message: null
+      },
+      methods: {
+        getData(obj){
+          console.log(obj);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
