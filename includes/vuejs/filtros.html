@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://vuejs.org/images/logo.png">
+  <title>Exemplos de filtros</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .span-is-link {
+      text-decoration: none;
+      cursor: pointer;
+      color: #0645AD;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="container" style="padding: 20px;">
+    <a href="../vuejs.html">Voltar</a>
+    <div class="field" style="padding-top:10px">
+      <div class="control">
+        <span class="span-is-link" @click="filteredItems(true)">Ativo</span>
+        <span class="span-is-link" @click="filteredItems(false)">Inativo</span>
+        <input type="checkbox" v-model="search">
+      </div>
+    </div>
+
+      <div class="columns">
+
+        <div class="column">
+          <table class="table">
+            <thead>
+              <tr>
+                <th v-for="header in headers">{{ header }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="name in names">
+                <td>{{ name.first_name }}</td>
+                <td>{{ name.last_name }}</td>
+                <td>
+                  <span class="icon">
+                    <i class="fa fa-check-circle has-text-info" v-if="name.active"></i>
+                    <i class="fa fa-close has-text-danger" v-else></i>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="column">
+          <table class="table">
+            <thead>
+              <tr>
+                <th v-for="header in headers">{{ header }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="name in filteredItems">
+                <td>{{ name.first_name }}</td>
+                <td>{{ name.last_name }}</td>
+                <td>
+                  <span class="icon">
+                    <i class="fa fa-check-circle has-text-info" v-if="name.active"></i>
+                    <i class="fa fa-close has-text-danger" v-else></i>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        names: [],
+        active: false,
+        search: '',
+        headers: [
+          'Nome',
+          'Sobrenome',
+          'Ativo'
+        ]
+      },
+      created(){
+        axios.get('../../static/json/names2.json')
+        .then(result => {
+          this.names = result.data.data
+        })
+      },
+      methods: {
+        filteredItems(ativar) {
+          if (ativar) {
+            // console.log('Ativo');
+            this.search = true
+            return this.names.filter(item => {
+              // console.log(item);
+              return item.active
+            })
+          } else {
+            // console.log('Inativo');
+            this.search = false
+            return this.names.filter(item => {
+              return !item.active
+            })
+          }
+        }
+      },
+      computed: {
+        filteredItems() {
+          console.log(this.search);
+          return this.names.filter((item) => {
+            console.log(this.search);
+              return item.active.indexOf(this.search)>=0
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>
+
+

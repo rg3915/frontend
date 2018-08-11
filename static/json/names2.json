@@ -2,67 +2,83 @@
   "data": [
       {
         "first_name": "Aaron",
-        "last_name": "Swartz"
+        "last_name": "Swartz",
+        "active": true
       },
       {
         "first_name": "Ada",
-        "last_name": "Lovelace"
+        "last_name": "Lovelace",
+        "active": false
       },
       {
         "first_name": "Adrian",
-        "last_name": "Holovaty"
+        "last_name": "Holovaty",
+        "active": true
       },
       {
         "first_name": "Alan",
-        "last_name": "Turing"
+        "last_name": "Turing",
+        "active": false
       },
       {
         "first_name": "Audrey",
-        "last_name": "Roy Greenfeld"
+        "last_name": "Roy Greenfeld",
+        "active": true
       },
       {
         "first_name": "Chelsea",
-        "last_name": "Manning"
+        "last_name": "Manning",
+        "active": false
       },
       {
         "first_name": "Daniel",
-        "last_name": "Roy Greenfeld"
+        "last_name": "Roy Greenfeld",
+        "active": true
       },
       {
         "first_name": "Donald",
-        "last_name": "Knuth"
+        "last_name": "Knuth",
+        "active": true
       },
       {
         "first_name": "Edward",
-        "last_name": "Snowden"
+        "last_name": "Snowden",
+        "active": true
       },
       {
         "first_name": "Grace",
-        "last_name": "Hopper"
+        "last_name": "Hopper",
+        "active": false
       },
       {
         "first_name": "Guido",
-        "last_name": "Van Rossum"
+        "last_name": "Van Rossum",
+        "active": false
       },
       {
         "first_name": "Ian",
-        "last_name": "Murdock"
+        "last_name": "Murdock",
+        "active": true
       },
       {
         "first_name": "Jacob",
-        "last_name": "Kaplan Moss"
+        "last_name": "Kaplan Moss",
+        "active": true
       },
       {
         "first_name": "Linus",
-        "last_name": "Torvalds"
+        "last_name": "Torvalds",
+        "active": true
       },
       {
         "first_name": "Peter",
-        "last_name": "Baumgartner"
+        "last_name": "Baumgartner",
+        "active": true
       },
       {
         "first_name": "Simon",
-        "last_name": "Willison"
+        "last_name": "Willison",
+        "active": false
       }
     ]
 }
