@@ -22,9 +22,9 @@
     <a href="../vuejs.html">Voltar</a>
     <div class="field" style="padding-top:10px">
       <div class="control">
-        <span class="span-is-link" @click="filteredItems(true)">Ativo</span>
-        <span class="span-is-link" @click="filteredItems(false)">Inativo</span>
-        <input type="checkbox" v-model="search">
+        <span class="span-is-link" @click="showActive=true">Ativo</span>
+        <span class="span-is-link" @click="showActive=false">Inativo</span>
+        <span class="span-is-link" @click="showActive=''">Limpar</span>
       </div>
     </div>
 
@@ -83,8 +83,7 @@
       el: '#app',
       data: {
         names: [],
-        active: false,
-        search: '',
+        showActive: '',
         headers: [
           'Nome',
           'Sobrenome',
@@ -97,31 +96,13 @@
           this.names = result.data.data
         })
       },
-      methods: {
-        filteredItems(ativar) {
-          if (ativar) {
-            // console.log('Ativo');
-            this.search = true
-            return this.names.filter(item => {
-              // console.log(item);
-              return item.active
-            })
-          } else {
-            // console.log('Inativo');
-            this.search = false
-            return this.names.filter(item => {
-              return !item.active
-            })
-          }
-        }
-      },
       computed: {
         filteredItems() {
-          console.log(this.search);
-          return this.names.filter((item) => {
-            console.log(this.search);
-              return item.active.indexOf(this.search)>=0
-          })
+          if (this.showActive === '') {
+            return this.names
+          } else {
+            return this.names.filter(name => this.showActive ? name.active : !name.active)
+          }
         }
       }
     })
@@ -130,3 +111,35 @@
 </html>
 
 
+// <template>
+//   <button @click="showPagos(true)">Pagos</button>
+//   <button @click="showPagos(false)">Não pagos</button>
+//   <ul>
+//     <li v-for="item in filteredItems">{{ item.name }}</li>
+//   </ul>
+// </template>
+
+// <script>
+// export default {
+//   data () {
+//     return {
+//       _showPagos: true,
+//       items: [
+//         {name: 'abacate', pago: false},
+//         {name: 'banana', pago: true},
+//         {name: 'cenoura', pago: false},
+//       ]
+//     }
+//   },
+//   methods: {
+//     showPagos(flag){
+//       this._showPagos = flag
+//     }
+//   },
+//   computed: {
+//     filteredItems(){
+//       return this.items.filter(item => this._showPagos === item.pago)
+//     }
+//   }
+// }
+// </script>
