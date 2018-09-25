@@ -21,11 +21,7 @@
       </div>
     </div>
     <div class="navbar">
-      <ul class="navbar-start">
-        <li class="navbar-item"><a @click="listar_gists(1)">1</a></li>
-        <li class="navbar-item"><a @click="listar_gists(2)">2</a></li>
-        <li class="navbar-item"><a @click="listar_gists(3)">3</a></li>
-      </ul>
+      <p>Total: {{ filteredItems.length }}/{{ items.length }}</p>
     </div>
     <table class="table">
       <tbody>
@@ -43,18 +39,23 @@ var app = new Vue({
       items: [],
       search: ''
     },
-    methods: {
-      listar_gists(page){
-        axios.get('https://api.github.com/users/rg3915/gists?page=' + page)
+    created(){
+      this.pages(1, 10).forEach(page => {
+        axios.get('https://api.github.com/users/rg3915/gists?page='+page)
         .then((result) => {
-          this.items = result.data.map((item) => {
-            return {description: item.description, url: item.html_url}
+          result.data.forEach(item => {
+            this.items.push(
+              {description: item.description, url: item.html_url}
+            )
           })
         })
-      }
+      })
     },
-    mounted(){
-      this.listar_gists(1)
+    methods:{
+      // https://stackoverflow.com/a/49715374
+      pages: function(start, end){
+        return Array(end - start + 1).fill().map((_, idx) => start + idx)
+      }
     },
     computed: {
       filteredItems(){
@@ -63,7 +64,7 @@ var app = new Vue({
         });
       }
     }
-  })
+  });
 
 </script>
 
