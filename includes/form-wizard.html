@@ -1,307 +1,850 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Form Wizard</title>
-    <link rel="shortcut icon" href="../static/favicon.ico">
-    <link rel="stylesheet" type="text/css"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link href="../static/css/wizard.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/favicon.ico" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link href="../static/css/wizard.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+    <script
+      type="text/javascript"
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    ></script>
 
-<a href="http://www.jquery-steps.com/Examples#basic" target="_blank">www.jquery-steps.com/Examples#basic</a><br>
+    <style>
+      .center-block:not(.active) {
+        display: none;
+      }
 
-<a href="https://bootsnipp.com/snippets/66ma5" target="_blank">bootsnipp.com/snippets/66ma5</a><br>
+      .disabled {
+        pointer-events: none;
+      }
 
-<a href="https://bootsnipp.com/snippets/GzXKV" target="_blank">bootsnipp.com/snippets/GzXKV</a><br>
+      .disabled .step {
+        background-color: #dddddd !important;
+      }
+    </style>
+  </head>
 
-<a href="https://bootsnipp.com/snippets/featured/form-wizard-and-validation" target="_blank">bootsnipp.com/snippets/featured/form-wizard-and-validation</a><br>
+  <body>
+    <a href="http://www.jquery-steps.com/Examples#basic" target="_blank"
+      >www.jquery-steps.com/Examples#basic</a
+    ><br />
 
-<a href="https://bootsnipp.com/snippets/featured/form-wizard-using-tabs" target="_blank">bootsnipp.com/snippets/featured/form-wizard-using-tabs</a><br>
+    <a href="https://bootsnipp.com/snippets/66ma5" target="_blank"
+      >bootsnipp.com/snippets/66ma5</a
+    ><br />
 
-<a href="https://bootsnipp.com/snippets/50ZNv" target="_blank">bootsnipp.com/snippets/50ZNv</a>
+    <a href="https://bootsnipp.com/snippets/GzXKV" target="_blank"
+      >bootsnipp.com/snippets/GzXKV</a
+    ><br />
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-default navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-           
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button> <a class="navbar-brand" href="../index.html">Form Wizard</a>
+    <a
+      href="https://bootsnipp.com/snippets/featured/form-wizard-and-validation"
+      target="_blank"
+      >bootsnipp.com/snippets/featured/form-wizard-and-validation</a
+    ><br />
+
+    <a
+      href="https://bootsnipp.com/snippets/featured/form-wizard-using-tabs"
+      target="_blank"
+      >bootsnipp.com/snippets/featured/form-wizard-using-tabs</a
+    ><br />
+
+    <a href="https://bootsnipp.com/snippets/50ZNv" target="_blank"
+      >bootsnipp.com/snippets/50ZNv</a
+    >
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav
+            class="navbar navbar-default navbar-default navbar-fixed-top"
+            role="navigation"
+          >
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+              >
+                <span class="sr-only">Toggle navigation</span
+                ><span class="icon-bar"></span><span class="icon-bar"></span
+                ><span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">Form Wizard</a>
+            </div>
+          </nav>
         </div>
-      </nav>
+
+        <div class="container">
+          <div class="row">
+            <article
+              class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable"
+            >
+              <div id="wid-id-0">
+                <header role="heading"><h2>Cadastro Rápido</h2></header>
+                <!-- widget div-->
+                <div role="content">
+                  <!-- widget content -->
+                  <div class="widget-body">
+                    <div class="row">
+                      <div id="bootstrap-wizard-1" class="col-sm-12">
+                        <div class="form-bootstrapWizard">
+                          <ul class="bootstrapWizard form-wizard">
+                            <li class="active" data-target="#tab1">
+                              <a href="#tab1" data-toggle="tab" class="active">
+                                <span class="step">1</span>
+                                <span class="title">Cliente</span>
+                              </a>
+                            </li>
+                            <li data-target="#tab2" class="">
+                              <a
+                                href="#tab2"
+                                data-toggle="tab"
+                                class="disabled"
+                              >
+                                <span class="step">2</span>
+                                <span class="title">Contato do Cliente</span>
+                              </a>
+                            </li>
+                            <li data-target="#tab3" class="">
+                              <a
+                                href="#tab3"
+                                data-toggle="tab"
+                                class="disabled"
+                              >
+                                <span class="step">3</span>
+                                <span class="title">Obra</span>
+                              </a>
+                            </li>
+                            <li data-target="#tab4">
+                              <a
+                                href="#tab4"
+                                data-toggle="tab"
+                                class="disabled"
+                              >
+                                <span class="step">4</span>
+                                <span class="title">Contato da Obra</span>
+                              </a>
+                            </li>
+                            <li data-target="#tab5">
+                              <a
+                                href="#tab5"
+                                data-toggle="tab"
+                                class="disabled"
+                              >
+                                <span class="step">5</span>
+                                <span class="title">Entrada</span>
+                              </a>
+                            </li>
+                            <li data-target="#tab6">
+                              <a
+                                href="#tab6"
+                                data-toggle="tab"
+                                class="disabled"
+                              >
+                                <span class="step">6</span>
+                                <span class="title">Final</span>
+                              </a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <div style="display: flex;">
+                          <div
+                            class="tab-content col-sm-6 center-block active"
+                            id="tab1"
+                          >
+                            <br />
+                            <!-- <h3><strong>1 </strong> - Escolher Cliente</h3> -->
+
+                            <!-- <select id="" name="" class="form-control">
+                              <option value="">----------------</option>
+                              <option value="">AAAAAA</option>
+                              <option value="">BBBBBB</option>
+                              <option value="">CCCCCC</option>
+                            </select> -->
+                            <div
+                              class="clearfix"
+                              style="padding-bottom: 15px"
+                            ></div>
+
+                            <form action="" id="tab1-form">
+                              <!-- add an event form -->
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>Novo Cliente</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group">
+                                    <label for="name" class="control-label"
+                                      >Nome</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="name"
+                                      class="form-control"
+                                      name="name"
+                                      placeholder="Nome"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label
+                                      for="client_type"
+                                      class="control-label"
+                                      >Tipo de Cliente</label
+                                    >
+                                    <select
+                                      id="client_type"
+                                      name="client_type"
+                                      class="form-control"
+                                    >
+                                      <option value="c">Construtora</option>
+                                      <option value="a">Arquitetura</option>
+                                      <option value="p">Particular</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pull-right">
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary nextBtn"
+                                  data-to="#tab2"
+                                  data-toggle="tab"
+                                >
+                                  Salvar & Continuar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div
+                            class="tab-content col-sm-6 center-block"
+                            id="tab2"
+                          >
+                            <br />
+                            <!-- <h3>
+                              <strong>2 </strong> - Escolher Contato do
+                              Cliente
+                            </h3> -->
+
+                            <!-- <select id="" name="" class="form-control">
+                              <option value="">----------------</option>
+                              <option value="">AAAAAA</option>
+                              <option value="">BBBBBB</option>
+                              <option value="">CCCCCC</option>
+                            </select> -->
+                            <form action="" id="tab2-form">
+                              <div
+                                class="clearfix"
+                                style="padding-bottom: 15px"
+                              ></div>
+
+                              <!-- add an event form -->
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>Novo Contato do Cliente</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group">
+                                    <label class="control-label" for="name"
+                                      >Nome</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="name"
+                                      name="name"
+                                      class="form-control"
+                                      placeholder="Nome"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="last_name"
+                                      >Sobrenome</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="last_name"
+                                      name="last_name"
+                                      class="form-control"
+                                      placeholder="Sobrenome"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="email"
+                                      >E-mail</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="email"
+                                      name="email"
+                                      class="form-control"
+                                      placeholder="e-mail"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="phone"
+                                      >Fone</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="phone"
+                                      name="phone"
+                                      class="form-control"
+                                      placeholder="(11) 8765-4321"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="cel"
+                                      >Cel</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="cel"
+                                      name="cel"
+                                      class="form-control"
+                                      placeholder="(11) 98765-4321"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pull-right">
+                                <button
+                                  type="button"
+                                  class="btn btn-default backBtn"
+                                  data-to="#tab1"
+                                  data-toggle="tab"
+                                >
+                                  Voltar
+                                </button>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary nextBtn"
+                                  data-to="#tab3"
+                                  data-toggle="tab"
+                                >
+                                  Salvar & Continuar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div
+                            class="tab-content col-sm-6 center-block"
+                            id="tab3"
+                          >
+                            <br />
+
+                            <form action="" id="tab3-form">
+                              <div
+                                class="clearfix"
+                                style="padding-bottom: 15px"
+                              ></div>
+
+                              <!-- add an event form -->
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>Nova Obra</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group">
+                                    <label class="control-label" for="obra"
+                                      >Obra</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="obra"
+                                      name="obra"
+                                      class="form-control"
+                                      placeholder="Obra"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="address"
+                                      >Endereço</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="address"
+                                      name="address"
+                                      class="form-control"
+                                      placeholder="Endereço"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label"
+                                      for="complemento"
+                                      >Complemento</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="complemento"
+                                      name="complemento"
+                                      class="form-control"
+                                      placeholder="Complemento"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label"
+                                      for="neighborhood"
+                                      >Bairro</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="neighborhood"
+                                      name="neighborhood"
+                                      class="form-control"
+                                      placeholder="Bairro"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="city"
+                                      >Cidade</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="city"
+                                      name="city"
+                                      class="form-control"
+                                      placeholder="Cidade"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="state"
+                                      >Estado</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="state"
+                                      name="state"
+                                      class="form-control"
+                                      placeholder="Estado"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pull-right">
+                                <button
+                                  type="button"
+                                  class="btn btn-default backBtn"
+                                  data-to="#tab2"
+                                  data-toggle="tab"
+                                >
+                                  Voltar
+                                </button>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary nextBtn"
+                                  data-to="#tab4"
+                                  data-toggle="tab"
+                                >
+                                  Salvar & Continuar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div
+                            class="tab-content col-sm-6 center-block"
+                            id="tab4"
+                          >
+                            <br />
+
+                            <form action="" id="tab4-form">
+                              <div
+                                class="clearfix"
+                                style="padding-bottom: 15px"
+                              ></div>
+
+                              <!-- add an event form -->
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>Novo Contato da Obra</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group">
+                                    <label class="control-label" for="name"
+                                      >Nome</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="name"
+                                      name="name"
+                                      class="form-control"
+                                      placeholder="Nome"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="last_name"
+                                      >Sobrenome</label
+                                    >
+                                    <strong style="color:red">*</strong>
+                                    <input
+                                      type="text"
+                                      id="last_name"
+                                      name="last_name"
+                                      class="form-control"
+                                      placeholder="Sobrenome"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="email"
+                                      >E-mail</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="email"
+                                      name="email"
+                                      class="form-control"
+                                      placeholder="e-mail"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="phone"
+                                      >Fone</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="phone"
+                                      name="phone"
+                                      class="form-control"
+                                      placeholder="(11) 8765-4321"
+                                    />
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="cel"
+                                      >Cel</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="cel"
+                                      name="cel"
+                                      class="form-control"
+                                      placeholder="(11) 98765-4321"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pull-right">
+                                <button
+                                  type="button"
+                                  class="btn btn-default backBtn"
+                                  data-to="#tab3"
+                                  data-toggle="tab"
+                                >
+                                  Voltar
+                                </button>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary nextBtn"
+                                  data-to="#tab5"
+                                  data-toggle="tab"
+                                >
+                                  Salvar & Continuar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div
+                            class="tab-content col-sm-6 center-block"
+                            id="tab5"
+                          >
+                            <br />
+
+                            <form action="" id="tab5-form">
+                              <div
+                                class="clearfix"
+                                style="padding-bottom: 15px"
+                              ></div>
+
+                              <!-- add an event form -->
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>Entrada da obra</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label"
+                                      for="description"
+                                      >Descrição</label
+                                    >
+                                    <input
+                                      type="text"
+                                      id="description"
+                                      name="description"
+                                      class="form-control"
+                                      placeholder="Descrição"
+                                    />
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="control-label" for="priority"
+                                      >Prioridade</label
+                                    >
+                                    <select
+                                      id="priority"
+                                      name="priority"
+                                      class="form-control"
+                                    >
+                                      <option value="">----------------</option>
+                                      <option value="aaa">AAAAAA</option>
+                                      <option value="bbb">BBBBBB</option>
+                                      <option value="ccc">CCCCCC</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="control-label" for="category"
+                                      >Categoria</label
+                                    >
+                                    <select
+                                      id="category"
+                                      name="category"
+                                      class="form-control"
+                                    >
+                                      <option value="">----------------</option>
+                                      <option value="aaa">AAAAAA</option>
+                                      <option value="bbb">BBBBBB</option>
+                                      <option value="ccc">CCCCCC</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="control-label" for="seller"
+                                      >Vendedor</label
+                                    >
+                                    <select
+                                      id="seller"
+                                      name="seller"
+                                      class="form-control"
+                                    >
+                                      <option value="">----------------</option>
+                                      <option value="aaa">AAAAAA</option>
+                                      <option value="bbb">BBBBBB</option>
+                                      <option value="ccc">CCCCCC</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pull-right">
+                                <button
+                                  type="button"
+                                  class="btn btn-default backBtn"
+                                  data-to="#tab4"
+                                  data-toggle="tab"
+                                >
+                                  Voltar
+                                </button>
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary nextBtn"
+                                  data-to="#tab6"
+                                  data-toggle="tab"
+                                >
+                                  Salvar & Continuar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div
+                            class="tab-content col-sm-6 center-block"
+                            id="tab6"
+                          >
+                            <br />
+
+                            <h3><strong>Step 6</strong> - Save Form</h3>
+                            <br />
+                            <h1 class="text-center text-success">
+                              <strong
+                                ><i class="fa fa-check fa-lg"></i>
+                                Complete</strong
+                              >
+                            </h1>
+                            <h4 class="text-center">Click next to finish</h4>
+                            <br />
+                            <div>
+                              <p>Cliente: <span id="client_name_text"></span></p>
+                              <p>Contato do Cliente: <span id="client_contact_text"></span></p>
+                              <p>Obra: <span id="obra_text"></span></p>
+                              <p>Contato da Obra: <span id="obra_contact_text"></span></p>
+                              <p>Vendedor: <span id="seller_text"></span></p>
+                              <p>Descrição: <span id="description_text"></span></p>
+                            </div>
+                            <br />
+                            <div class="pull-right">
+                              <button
+                                type="button"
+                                class="btn btn-default backBtn"
+                                data-to="#tab5"
+                                data-toggle="tab"
+                              >
+                                Voltar
+                              </button>
+                              <button
+                                type="submit"
+                                class="btn btn-primary"
+                                id="finish"
+                              >
+                                Finalizar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- row -->
+                  </div>
+                  <!-- end widget content -->
+                </div>
+                <!-- end widget div -->
+              </div>
+              <!-- end widget -->
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
 
-<div class="container">
-  <div class="row">
-    <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
-      <div id="wid-id-0">
-        <header role="heading">
-          <h2>Cadastro Rápido</h2>
-        </header>
-        <!-- widget div-->
-        <div role="content">
-          <!-- widget content -->
-          <div class="widget-body">
+    <script>
+      $(document).ready(function() {
+        var navListItems = $('.form-bootstrapWizard a'),
+          allWells = $('.tab-content'),
+          allNextBtn = $('.nextBtn');
 
-            <div class="row">
-              <form id="wizard-1" novalidate="novalidate">
-                <div id="bootstrap-wizard-1" class="col-sm-12">
+        allWells.hide();
 
-                  <div class="form-bootstrapWizard">
-                    <ul class="bootstrapWizard form-wizard">
-                      <li class="active" data-target="#step1">
-                        <a href="#tab1" data-toggle="tab" class="active">
-                          <span class="step">1</span>
-                          <span class="title">Cliente</span>
-                        </a>
-                      </li>
-                      <li data-target="#step2" class="">
-                        <a href="#tab2" data-toggle="tab">
-                          <span class="step">2</span>
-                          <span class="title">Contato do Cliente</span>
-                        </a>
-                      </li>
-                      <li data-target="#step3" class="">
-                        <a href="#tab3" data-toggle="tab">
-                          <span class="step">3</span>
-                          <span class="title">Obra</span>
-                        </a>
-                      </li>
-                      <li data-target="#step4">
-                        <a href="#tab4" data-toggle="tab">
-                          <span class="step">4</span>
-                          <span class="title">Contato da Obra</span>
-                        </a>
-                      </li>
-                      <li data-target="#step5">
-                        <a href="#tab5" data-toggle="tab">
-                          <span class="step">5</span>
-                          <span class="title">Entrada</span>
-                        </a>
-                      </li>
-                      <li data-target="#step6">
-                        <a href="#tab6" data-toggle="tab">
-                          <span class="step">6</span>
-                          <span class="title">Final</span>
-                        </a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
+        navListItems.click(function(e) {
+          e.preventDefault();
+          var $target = $($(this).attr('href')),
+            $item = $(this);
 
-                  <div class="tab-content">
+          if (!$item.hasClass('disabled')) {
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+          }
+        });
 
-                    <div class="tab-pane active" id="tab1">
-                      <br>
-                      <h3><strong>1 </strong> - Escolher Cliente</h3>
+        allNextBtn.click(function(e) {
+          e.preventDefault();
 
-                      <!-- form -->
-                      <div class="tab-content">
-                        <div class="tab-pane active" role="tabpanel" id="step1">
-                          <!-- <h3>Step 1</h3>
-                          <p>This is step 1</p> -->
-                          <div class="col-sm-6">
-                            <select id="" name="" class="form-control">
-                              <option value="">----------------</option>
-                              <option value="">AAAAAA</option>
-                              <option value="">BBBBBB</option>
-                              <option value="">CCCCCC</option>
-                            </select>
-                          </div>
-                          <div class="clearfix" style="padding-bottom: 15px"></div>
+          var curStep = $(this).closest('.tab-content'),
+            curStepBtn = curStep.attr('id'),
+            nextStepWizard = $(
+              '.form-bootstrapWizard a[href="' + $(this).data('to') + '"]',
+            ),
+            curInputs = curStep.find("input[type='text'],input[type='email']"),
+            isValid = true;
 
-                          <!-- add an event form -->
-                          <div class="col-sm-6">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                 <h3>Novo Cliente</h3>
-                              </div>
-                              <div class="panel-body">
-                                <div class="form-group">
-                                  <label>Nome</label> <strong style="color:red">*</strong>
-                                   <input id="" class="form-control" placeholder="Nome">
-                                </div>
-                                <div class="form-group">
-                                  <label>Tipo de Cliente</label>
-                                   <select id="" name="" class="form-control">
-                                    <option value="c">Construtora</option>
-                                    <option value="a">Arquitetura</option>
-                                    <option value="p">Particular</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="pull-right">
-                              <button type="button" class="btn btn-default">Voltar</button>
-                              <button type="button" class="btn btn-primary" href="#tab2" data-toggle="tab">Salvar & Continuar</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+          $('.form-group').removeClass('has-error');
+          for (var i = 0; i < curInputs.length; i++) {
+            if (!curInputs[i].validity.valid) {
+              isValid = false;
+              $(curInputs[i])
+                .closest('.form-group')
+                .addClass('has-error');
+            }
+          }
 
-                      <div class="form-actions">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <ul class="pager wizard no-margin">
-                              <li class="previous disabled">
-                                <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                <!-- <button type="button" class="btn btn-primary">Save and continue</button> -->
-                              </li>
-                              <li class="next">
-                                <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+          $('#client_name_text').text($('#tab1-form #name').val());
+          $('#client_contact_text').text($('#tab2-form #name').val());
+          $('#obra_text').text($('#tab3-form #obra').val());
+          $('#obra_contact_text').text($('#tab4-form #name').val());
+          $('#seller_text').text($('#tab5-form #seller').val());
+          $('#description_text').text($('#tab5-form #description').val());
 
-                    <div class="tab-pane" id="tab2">
-                      <br>
-                      <h3><strong>2 </strong> - Escolher Contato do Cliente</h3>
+          // Send the current form data to your back-end with this JSON
+          const data = getFormData($('#' + curStepBtn + '-form'));
+          // The action on the current form
+          const action = $('#' + curStepBtn + '-form');
 
-                      <!-- form -->
-                      <div class="tab-content">
-                        <div class="tab-pane active" role="tabpanel" id="step2">
-                          <!-- <h3>Step 1</h3>
-                          <p>This is step 1</p> -->
-                          <div class="col-sm-6">
-                            <select id="" name="" class="form-control">
-                              <option value="">----------------</option>
-                              <option value="">AAAAAA</option>
-                              <option value="">BBBBBB</option>
-                              <option value="">CCCCCC</option>
-                            </select>
-                          </div>
-                          <div class="clearfix" style="padding-bottom: 15px"></div>
+          // $.ajax(action)...
 
-                          <!-- add an event form -->
-                          <div class="col-sm-6">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                 <h3>Novo Contato do Cliente</h3>
-                              </div>
-                              <div class="panel-body">
-                                <div class="form-group">
-                                  <label>Nome</label> <strong style="color:red">*</strong>
-                                   <input id="" class="form-control" placeholder="Nome">
-                                </div>
-                                <div class="form-group">
-                                  <label>Sobrenome</label> <strong style="color:red">*</strong>
-                                   <input id="" class="form-control" placeholder="Sobrenome">
-                                </div>
-                                <div class="form-group">
-                                  <label>E-mail</label>
-                                   <input id="" class="form-control" type="email" placeholder="e-mail">
-                                </div>
-                                <div class="form-group">
-                                  <label>Fone</label>
-                                   <input id="" class="form-control" placeholder="(11) 8765-4321">
-                                </div>
-                                <div class="form-group">
-                                  <label>Cel</label>
-                                   <input id="" class="form-control" placeholder="(11) 98765-4321">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="pull-right">
-                              <button type="button" class="btn btn-default" href="#tab1" data-toggle="tab">Voltar</button>
-                              <button type="button" class="btn btn-primary" href="#tab3" data-toggle="tab">Salvar & Continuar</button>
-                            </div>
-                          </div>
-                      </div>
+          localStorage.setItem(curStepBtn + '-form', JSON.stringify(data));
 
+          if (isValid) nextStepWizard.removeClass('disabled').trigger('click');
+        });
 
-                      <div class="form-actions">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <ul class="pager wizard no-margin">
-                              <li class="previous">
-                                <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                              </li>
-                              <li class="next disabled">
-                                <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        $('.form-bootstrapWizard a.active').trigger('click');
+      });
 
-                    <div class="tab-pane" id="tab3">
-                      <br>
-                      <h3><strong>Step 3</strong> - Domain Setup</h3>
-                      <div class="form-actions">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <ul class="pager wizard no-margin">
-                              <li class="previous">
-                                <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                              </li>
-                              <li class="next disabled">
-                                <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      $('.backBtn').click(function() {
+        var to = $(this).data('to');
 
-                    <div class="tab-pane" id="tab4">
-                      <br>
-                      <h3><strong>Step 4</strong> - Save Form</h3>
-                      <br>
-                      <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Complete</strong></h1>
-                      <h4 class="text-center">Click next to finish</h4>
-                      <br>
-                      <br>
-                      <div class="form-actions">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <ul class="pager wizard no-margin">
-                              <li class="previous">
-                                <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                              </li>
-                              <li class="next disabled">
-                                <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        $('.tab-content.active')
+          .hide()
+          .removeClass('active');
+        $(to)
+          .show()
+          .addClass('active');
+        $('[data-target].active').removeClass('active');
+        $('[data-target="' + to + '"]').addClass('active');
+      });
 
-                  </div>
+      $('#finish').click(function() {
+        $([1, 2, 3, 4, 5]).each(function() {
+          localStorage.removeItem('tab' + this + '-form');
+        });
 
-                </div>
-              </form>
-            </div> <!-- row -->
+        alert('Salvo com sucesso');
 
-          </div>
-          <!-- end widget content -->
+        window.location.reload();
+      });
 
-        </div>
-        <!-- end widget div -->
+      $([1, 2, 3, 4, 5]).each(function() {
+        var data = localStorage.getItem('tab' + this + '-form');
 
-      </div>
-      <!-- end widget -->
+        if (data) {
+          data = JSON.parse(data);
 
-    </article>
-  </div>
-</div>
+          // Object.entries is so recent...
+          var keys = Object.keys(data);
+          var that = this;
 
+          $(keys).each(function() {
+            $('#tab' + that + '-form')
+              .find('[name="' + this + '"]')
+              .val(data[this]);
+          });
+        }
+      });
 
+      function getFormData($form) {
+        var unindexed_array = $form.serializeArray();
+        var indexed_array = {};
 
+        $.map(unindexed_array, function(n, i) {
+          indexed_array[n['name']] = n['value'];
+        });
 
-
-  </div>
-</div>
-
-</body>
+        return indexed_array;
+      }
+    </script>
+  </body>
 </html>
