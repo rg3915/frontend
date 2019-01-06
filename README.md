@@ -4,6 +4,12 @@ Testando CSS, JavaScript, jQuery, Ajax, AngularJS, Django e mais...
 
 E [interfaces web][2] do Curso de Verão IME USP 2017.
 
+## Running local with Python server
+
+```
+python -m http.server
+```
+
 Eu tenho duas **branchs**:
 
 ### gh-pages
