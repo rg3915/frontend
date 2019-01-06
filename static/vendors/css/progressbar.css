@@ -1,0 +1,16 @@
+.bg-primary {
+  color: #fff;
+  background-color: #36c4c5;
+}
+.bg-success {
+  background-color: #4dbd74;
+}
+.bg-info {
+  background-color: #63c2de;
+}
+.bg-warning {
+  background-color: #ffc107;
+}
+.bg-danger {
+  background-color: #f86c6b;
+}

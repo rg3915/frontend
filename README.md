@@ -6,6 +6,11 @@ And [interfaces web][2] by Summer School IME USP 2017.
 
 I have some **branchs**:
 
+## Running local with Python server
+
+```
+python -m http.server
+```
 
 ### gh-pages
 
