@@ -782,7 +782,7 @@
           // Send the current form data to your back-end with this JSON
           const data = getFormData($('#' + curStepBtn + '-form'));
           // The action on the current form
-          const action = $('#' + curStepBtn + '-form');
+          const action = $('#' + curStepBtn + '-form').attr('action');
 
           // $.ajax(action)...
 
