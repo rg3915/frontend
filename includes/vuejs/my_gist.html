@@ -11,7 +11,8 @@
 </head>
 <body>
   <div id="app" class="container" style="padding: 20px;">
-    <a href="/">Voltar</a>
+    <a href="/" style="margin-right:25px">Voltar</a>
+    <span style="padding-left:10px;cursor:pointer;color:#3273dc;" v-for="user in users" @click="gistByUser(user)">@{{ user }}</span>
     <div class="field">
       <div class="control">
         <input type="text"
@@ -28,10 +29,9 @@
         <tr v-for="item in filteredItems">
           <td>
             <a :href="item.url" target="_blank">{{ item.description }}</a>
-            <p>Files</p>
-            <ul>
+            <ul style="position:relative; left:20px">
               <li v-for="file in Object.keys(item.files)">
-                <a style="font-size:12px" :href="item.files[file].raw_url" target="_blank">{{ file }}</a>
+                <a style="font-size:12px; color:#3273dcc4;" :href="item.files[file].raw_url" target="_blank">{{ file }}</a>
               </li>
             </ul>
           </td>
@@ -45,11 +45,13 @@ var app = new Vue({
     el: '#app',
     data: {
       items: [],
+      users: [
+        'rg3915',
+        'olivx',
+        'dunossauro',
+      ],
       search: ''
     },
-    // created(username){
-      
-    // },
     methods:{
       // https://stackoverflow.com/a/49715374
       pages: function(start, end){
@@ -66,11 +68,14 @@ var app = new Vue({
             })
           })
         })
+      },
+      gistByUser(username){
+        this.items = []
+        this.getGist(username)
       }
     },
     mounted(){
       this.getGist('rg3915')
-      // this.getGist('olivx')
     },
     computed: {
       filteredItems(){
