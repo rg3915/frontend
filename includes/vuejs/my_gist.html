@@ -26,7 +26,15 @@
     <table class="table">
       <tbody>
         <tr v-for="item in filteredItems">
-          <td><a :href="item.url" target="_blank">{{ item.description }}</a></td>
+          <td>
+            <a :href="item.url" target="_blank">{{ item.description }}</a>
+            <p>Files</p>
+            <ul>
+              <li v-for="file in Object.keys(item.files)">
+                <a style="font-size:12px" :href="item.files[file].raw_url" target="_blank">{{ file }}</a>
+              </li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -39,23 +47,30 @@ var app = new Vue({
       items: [],
       search: ''
     },
-    created(){
-      this.pages(1, 6).forEach(page => {
-        axios.get('https://api.github.com/users/rg3915/gists?page='+page)
-        .then((result) => {
-          result.data.forEach(item => {
-            this.items.push(
-              {description: item.description, url: item.html_url}
-            )
-          })
-        })
-      })
-    },
+    // created(username){
+      
+    // },
     methods:{
       // https://stackoverflow.com/a/49715374
       pages: function(start, end){
         return Array(end - start + 1).fill().map((_, idx) => start + idx)
+      },
+      getGist(username){
+        this.pages(1, 6).forEach(page => {
+          axios.get('https://api.github.com/users/'+username+'/gists?page='+page)
+          .then((result) => {
+            result.data.forEach(item => {
+              this.items.push(
+                {description: item.description, url: item.html_url, files: item.files}
+              )
+            })
+          })
+        })
       }
+    },
+    mounted(){
+      this.getGist('rg3915')
+      // this.getGist('olivx')
     },
     computed: {
       filteredItems(){
