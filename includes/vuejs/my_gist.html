@@ -49,6 +49,7 @@ var app = new Vue({
         'rg3915',
         'olivx',
         'dunossauro',
+        'luzfcb',
       ],
       search: ''
     },
@@ -80,6 +81,18 @@ var app = new Vue({
     computed: {
       filteredItems(){
         return this.items.filter((item) => {
+          if (!item.description && !this.search) {
+            return true;
+          }
+
+          if (this.search) {
+            for (let file of Object.keys(item.files)) {
+              if (file.toLowerCase().indexOf(this.search.toLowerCase()) >= 0) {
+                return true;
+              }
+            }
+          }
+
           return item.description.toLowerCase().indexOf(this.search.toLowerCase())>=0;
         });
       }
