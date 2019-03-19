@@ -1,0 +1,54 @@
+.conteudo-principal {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    grid-area: conteudo-principal;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 10fr 1fr;
+    grid-template-areas:
+    'lateral-esquerda conteudo lateral-direita'
+    'rodape rodape rodape'
+}
+.conteudo{
+    grid-area: conteudo;
+    display:grid;
+    grid-template-rows: 1fr 0.5fr 10fr 1fr;
+    grid-template-areas:
+    '.'
+    'breadcrumb'
+    'secao'
+    '.'
+}
+.secao {
+    grid-area: secao;
+    display: table;
+    background-color: #31ff4b45;
+    border-radius: 10px;
+    height: auto;
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#t1{
+    width:100%;
+    margin:20px;
+}
+
+.text-line{
+    /*color:#514B52;*/
+    font-family: Arial;
+}
+
+#t1 tr{
+    color:#514B52;
+}
+
+#t1 td{
+    font-family: Arial;
+}
+
+#t1 th{
+    font-weight: normal;
+}
+
