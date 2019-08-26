@@ -1,8 +1,9 @@
 from django.core import serializers
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
-from django.http import (HttpResponse, HttpResponseRedirect,
-                         HttpResponseNotAllowed, JsonResponse)
+from django.http import (
+    HttpResponse, HttpResponseRedirect, HttpResponseNotAllowed, JsonResponse
+)
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, ListView
 from .models import Customer, Person

@@ -1,24 +1,28 @@
-from django.conf.urls import url, include
+from django.urls import include, path
 from djfront.djbasic import views as c
 
+
+app_name = 'djbasic'
+
+
 customer_patterns = [
-    url(r'^$', c.customer_list, name='customer_list'),
-    url(r'^add/$', c.customer_add, name='customer_add'),
-    url(r'^save/$', c.customer_save, name='customer_save'),
-    url(r'^(?P<pk>\d+)/edit/$', c.customer_edit, name='customer_edit'),
-    url(r'^(?P<pk>\d+)/delete/$', c.customer_delete, name='customer_delete'),
-    url(r'^datatable/$', c.customer_list_datatable,
-        name='customer_list_datatable'),
-    url(r'^json/$', c.customer_json, name='customer_json'),
+    path('', c.customer_list, name='customer_list'),
+    path('add/', c.customer_add, name='customer_add'),
+    path('save/', c.customer_save, name='customer_save'),
+    path('<int:pk>/edit/', c.customer_edit, name='customer_edit'),
+    path('<int:pk>/delete/', c.customer_delete, name='customer_delete'),
+    path('datatable/', c.customer_list_datatable,
+         name='customer_list_datatable'),
+    path('json/', c.customer_json, name='customer_json'),
 ]
 
 person_patterns = [
-    url(r'^$', c.person_list, name='person_list'),
-    url(r'^add/$', c.person_create, name='person_add'),
+    path('', c.person_list, name='person_list'),
+    path('add/', c.person_create, name='person_add'),
 ]
 
 urlpatterns = [
-    url(r'^$', c.home, name='home'),
-    url(r'^customer/', include(customer_patterns)),
-    url(r'^person/', include(person_patterns)),
+    path('', c.home, name='home'),
+    path('customer/', include(customer_patterns)),
+    path('person/', include(person_patterns)),
 ]
