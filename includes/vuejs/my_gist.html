@@ -130,7 +130,7 @@
         return Array(end - start + 1).fill().map((_, idx) => start + idx)
       },
       getGist(username) {
-        this.pages(1, 15).forEach(page => {
+        this.pages(1, 25).forEach(page => {
           axios.get('https://api.github.com/users/' + username + '/gists?page=' + page)
             .then((result) => {
               result.data.forEach(item => {
