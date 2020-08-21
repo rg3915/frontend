@@ -1,47 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="https://vuejs.org/images/logo.png">
-  <title>My Gist</title>
+  <title>rg3915 Gist</title>
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin-top: 20px;
+    }
+    .columns {
+      margin-top: 5px;
+    }
+    .stars {
+      font-size: 24px
+    }
+    .users {
+      padding-left: 10px;
+      cursor: pointer;
+      color: #3273dc;
+    }
+    .link {
+      margin-right: 20px;
+    }
+    .first-panel-block {
+      border-top: 1px solid #dbdbdb;
+    }
+    .panel-icon {
+      vertical-align: middle !important;
+    }
+  </style>
 </head>
+
 <body>
-  <div id="app" class="container" style="padding: 20px;">
-    <a href="/" style="margin-right:25px">Voltar</a>
-    <span style="padding-left:10px;cursor:pointer;color:#3273dc;" v-for="user in users" @click="gistByUser(user)">@{{ user }}</span>
-    <div class="field">
-      <div class="control">
-        <input type="text"
-        class="input"
-        placeholder="Search..."
-        v-model="search">
+  <div id="app" class="container">
+    <h1 class="subtitle">This page search items on gist.</h1>
+    <a class="link" href="/"><i class="fa fa-chevron-left"></i> Voltar</a>
+    <a class="link" href="https://github.com/rg3915/frontend/blob/gh-pages/" target="_blank"><i class="fa fa-github"></i> github.com/rg3915/frontend</a>
+    <a class="link" href="https://github.com/rg3915/frontend/blob/gh-pages/includes/vuejs/my_gist.html" target="_blank">This template</a>
+    <!-- Main container -->
+    <div class="columns">
+      <!-- Um -->
+      <div class="column is-narrow">
+        <div class="field has-addons">
+          <p class="control">
+            <input class="input is-small" type="text" placeholder="Username..." v-model="user">
+          </p>
+          <p class="control">
+            <button class="button is-small" @click="gistByUser(user)">
+              Search
+            </button>
+          </p>
+        </div>
+        <h2 class="stars">Favorites</h2>
+        <br>
+        <a class="panel-block" :class="{ 'first-panel-block' : index === 0 }" v-for="(user, index) in users">
+          <span class="users" @click="gistByUser(user)">
+          <span class="panel-icon">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </span>
+          {{ user }}
+          </span>
+        </a>
+      </div>
+      <!-- Dois -->
+      <div class="column">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle is-5">
+              <strong>{{ filteredItems.length }}/{{ items.length }}</strong> gists
+            </p>
+          </div>
+          <div class="level-item">
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="text" placeholder="Search gist description..." v-model="search">
+              </p>
+              <p class="control">
+                <button class="button">
+                  Search
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr v-for="item in filteredItems">
+              <td>
+                <a :href="item.url" target="_blank">{{ item.description }}</a>
+                <ul style="position:relative; left:20px">
+                  <li v-for="file in Object.keys(item.files)">
+                    <a style="font-size:12px; color:#3273dcc4;" :href="item.files[file].raw_url" target="_blank">{{ file }}</a>
+                  </li>
+                  <!-- <li v-for="file in item.files">
+                    <a style="font-size:12px; color:#3273dcc4;">{{ file }}</a>
+                  </li> -->
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="navbar">
-      <p>Total: {{ filteredItems.length }}/{{ items.length }}</p>
-    </div>
-    <table class="table">
-      <tbody>
-        <tr v-for="item in filteredItems">
-          <td>
-            <a :href="item.url" target="_blank">{{ item.description }}</a>
-            <ul style="position:relative; left:20px">
-              <li v-for="file in Object.keys(item.files)">
-                <a style="font-size:12px; color:#3273dcc4;" :href="item.files[file].raw_url" target="_blank">{{ file }}</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-
-<script>
-var app = new Vue({
+  <script>
+  var app = new Vue({
     el: '#app',
     data: {
       items: [],
@@ -51,36 +119,36 @@ var app = new Vue({
         'dunossauro',
         'luzfcb',
         'olivx',
+        'pydanny',
+        'rochacbruno',
       ],
       search: ''
     },
-    methods:{
+    methods: {
       // https://stackoverflow.com/a/49715374
-      pages: function(start, end){
+      pages: function(start, end) {
         return Array(end - start + 1).fill().map((_, idx) => start + idx)
       },
-      getGist(username){
-        this.pages(1, 8).forEach(page => {
-          axios.get('https://api.github.com/users/'+username+'/gists?page='+page)
-          .then((result) => {
-            result.data.forEach(item => {
-              this.items.push(
-                {description: item.description, url: item.html_url, files: item.files}
-              )
+      getGist(username) {
+        this.pages(1, 15).forEach(page => {
+          axios.get('https://api.github.com/users/' + username + '/gists?page=' + page)
+            .then((result) => {
+              result.data.forEach(item => {
+                this.items.push({ description: item.description, url: item.html_url, files: item.files })
+              })
             })
-          })
         })
       },
-      gistByUser(username){
+      gistByUser(username) {
         this.items = []
         this.getGist(username)
       }
     },
-    mounted(){
+    mounted() {
       this.getGist('rg3915')
     },
     computed: {
-      filteredItems(){
+      filteredItems() {
         return this.items.filter((item) => {
           if (!item.description && !this.search) {
             return true;
@@ -94,13 +162,12 @@ var app = new Vue({
             }
           }
 
-          return item.description.toLowerCase().indexOf(this.search.toLowerCase())>=0;
+          return item.description.toLowerCase().indexOf(this.search.toLowerCase()) >= 0;
         });
       }
     }
   });
-
-</script>
-
+  </script>
 </body>
+
 </html>
