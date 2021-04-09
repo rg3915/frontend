@@ -1,5 +1,5 @@
 dj-database-url==0.5.0
-Django==2.2.4
+Django==2.2.20
 django-bootstrap-form==3.4
 django-extensions==2.2.1
 django-semanticui-form==0.0.1
